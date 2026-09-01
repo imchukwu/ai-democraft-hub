@@ -82,7 +82,7 @@ export function ProgramSchedule() {
                     <div className="flex items-center gap-4">
                       <div className="flex items-center gap-1.5 font-mono text-sm font-bold text-primary">
                         <Clock className="h-4 w-4" />
-                        <span>{session.time} – {session.endTime}</span>
+                        <span>{session.endTime ? `${session.time} – ${session.endTime}` : session.time}</span>
                       </div>
                       <span className="rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
                         {session.type}

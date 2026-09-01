@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="8" fill="#0F172A"/>
+  <path d="M20 20H40V26H26V34H40V40H20V20Z" fill="#1979E1"/>
+  <text x="52" y="32" font-family="'Work Sans', sans-serif" font-weight="800" font-size="17" fill="#FFFFFF" letter-spacing="1">CJID</text>
+  <text x="52" y="44" font-family="'Work Sans', sans-serif" font-weight="500" font-size="9" fill="#FEA105" letter-spacing="0.5">AFRICA</text>
+</svg>

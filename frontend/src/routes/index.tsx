@@ -24,7 +24,7 @@ function Index() {
       <Hero />
       <WhyAiDemocracy />
       <ProgramSchedule />
-      <SpeakersGrid limit={4} />
+      <SpeakersGrid />
       <PartnersGrid />
       <InnovationHub />
       <RegistrationSection />

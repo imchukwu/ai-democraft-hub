@@ -14,8 +14,8 @@ function ProgramPage() {
       <div className="border-b border-border bg-slate-950 py-16 text-slate-100 md:py-20 text-center">
         <div className="container-forum">
           <span className="eyebrow text-cyan-400">Convening Schedule</span>
-          <h1 className="mt-2 text-4xl font-extrabold text-white">Full 5-Day Program</h1>
-          <p className="mt-2 text-sm text-slate-300">7–11 October 2026 · Abuja, Nigeria</p>
+          <h1 className="mt-2 text-4xl font-extrabold text-white">Full 3-Day Program</h1>
+          <p className="mt-2 text-sm text-slate-300">7–9 October 2026 · Abuja, Nigeria</p>
         </div>
       </div>
       <ProgramSchedule />

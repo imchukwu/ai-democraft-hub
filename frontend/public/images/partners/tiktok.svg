@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="8" fill="#0F172A"/>
+  <path d="M30 18V34C29 33 27 32 25 33C22 34 21 37 22 39C23 42 26 43 29 42C32 41 33 38 33 35V24C35 26 38 27 40 27V22C38 22 35 20 34 18H30Z" fill="#FEA105"/>
+  <path d="M29 18V34C28 33 26 32 24 33C21 34 20 37 21 39C22 42 25 43 28 42C31 41 32 38 32 35V24C34 26 37 27 39 27V22C37 22 34 20 33 18H29Z" fill="#00F2FE"/>
+  <text x="48" y="35" font-family="'Work Sans', sans-serif" font-weight="700" font-size="15" fill="#FFFFFF">TikTok</text>
+</svg>

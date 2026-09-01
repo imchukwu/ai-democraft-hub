@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="8" fill="#0F172A"/>
+  <rect x="18" y="32" width="6" height="12" rx="1" fill="#FEA105"/>
+  <rect x="26" y="24" width="6" height="20" rx="1" fill="#1979E1"/>
+  <rect x="34" y="16" width="6" height="28" rx="1" fill="#15B708"/>
+  <text x="48" y="35" font-family="'Work Sans', sans-serif" font-weight="800" font-size="14" fill="#FFFFFF" letter-spacing="0.5">Dataphyte</text>
+</svg>

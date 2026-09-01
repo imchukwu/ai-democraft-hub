@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="8" fill="#0F172A"/>
+  <circle cx="28" cy="30" r="12" fill="#FEA105"/>
+  <text x="28" y="35" font-family="'Work Sans', sans-serif" font-weight="900" font-size="12" fill="#000000" text-anchor="middle">TC</text>
+  <text x="48" y="34" font-family="'Work Sans', sans-serif" font-weight="800" font-size="14" fill="#FFFFFF">TechCabal</text>
+</svg>

@@ -21,4 +21,15 @@ export default defineConfig({
     tailwindcss(),
     tsconfigPaths(),
   ],
+  preview: {
+    allowedHosts: [
+      'aidf-frontend-934225016182.us-central1.run.app',
+      'www.aianddemocracyforum.org',
+      'aianddemocracyforum.org',
+      'www.aianddemocracyforum.com',
+      'aianddemocracyforum.com',
+      'www.aianddemocracyforum.ng',
+      'aianddemocracyforum.ng'
+    ]
+  }
 });
