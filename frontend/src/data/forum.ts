@@ -12,7 +12,7 @@ export const forumMeta = {
   date: "7th – 9th October 2026",
   dateShort: "7–9 Oct 2026",
   location: "Abuja, Nigeria",
-  venue: "International Conference Centre, Abuja",
+  venue: "Congress Hall, Transcorp Hilton, Abuja",
   edition: "First Edition · Annual Convening",
   tagline:
     "A national multi-stakeholder platform examining how Nigeria can govern and harness AI to strengthen the credibility of the 2027 elections and the resilience of its democracy.",
@@ -268,8 +268,8 @@ export type Speaker = {
 
 export const speakers: Speaker[] = [
   {
-    id: "samson-itodo",
-    name: "Samson Itodo",
+    id: "speaker-1",
+    name: "Speaker 1",
     position: "Executive Director",
     organization: "Yiaga Africa",
     country: "Nigeria",
@@ -283,8 +283,8 @@ export const speakers: Speaker[] = [
     ],
   },
   {
-    id: "lerato-mokoena",
-    name: "Hon. Lerato Mokoena",
+    id: "speaker-2",
+    name: "Speaker 2",
     position: "Chairperson, Pan-African Digital Ethics Commission",
     organization: "African Union Tech Taskforce",
     country: "South Africa",
@@ -297,8 +297,8 @@ export const speakers: Speaker[] = [
     ],
   },
   {
-    id: "ify-balogun",
-    name: "Ify Balogun",
+    id: "speaker-3",
+    name: "Speaker 3",
     position: "Lead Election Tech Researcher",
     organization: "Yiaga Africa AI Workstream",
     country: "Nigeria",
@@ -311,8 +311,8 @@ export const speakers: Speaker[] = [
     ],
   },
   {
-    id: "samuel-okonkwo",
-    name: "Dr. Samuel Okonkwo",
+    id: "speaker-4",
+    name: "Speaker 4",
     position: "Senior Electoral Technology Consultant",
     organization: "Independent National Electoral Commission (INEC)",
     country: "Nigeria",
@@ -323,8 +323,8 @@ export const speakers: Speaker[] = [
     links: [{ label: "LinkedIn", url: "https://linkedin.com" }],
   },
   {
-    id: "nadia-haddad",
-    name: "Nadia Haddad",
+    id: "speaker-5",
+    name: "Speaker 5",
     position: "Senior Fellow for Media Freedom",
     organization: "Global Rights Observatory",
     country: "Tunisia",
@@ -337,8 +337,8 @@ export const speakers: Speaker[] = [
     ],
   },
   {
-    id: "kwame-mensah",
-    name: "Kwame Mensah",
+    id: "speaker-6",
+    name: "Speaker 6",
     position: "Lead Architect",
     organization: "OpenDemocracy AI Labs",
     country: "Ghana",
@@ -388,38 +388,59 @@ export const partners: Partner[] = [
   },
   {
     id: "p3",
-    name: "ECOWAS Network of Electoral Commissions (ECONEC)",
+    name: "GiZ (Deutsche Gesellschaft für Internationale Zusammenarbeit)",
     category: "Strategic Partners",
-    logoPlaceholder: "ECONEC WEST AFRICA",
-    website: "https://ecowas.int",
+    logoPlaceholder: "GIZ GERMANY",
+    website: "https://giz.de",
   },
   {
     id: "p4",
-    name: "Africa Electoral Justice Network (AEJN)",
-    category: "Knowledge & Judicial Partners",
-    logoPlaceholder: "AEJN JUDICIAL TOOLKIT",
-    website: "https://example.org",
+    name: "CJID (Centre for Journalism Innovation and Development)",
+    category: "Knowledge Partners",
+    logoPlaceholder: "CJID AFRICA",
+    website: "https://thecjid.org",
   },
   {
     id: "p5",
-    name: "Microsoft",
-    category: "Technology Exhibitors",
-    logoPlaceholder: "MICROSOFT ELECTION SAFETY",
-    website: "https://microsoft.com",
+    name: "Dataphyte",
+    category: "Media Partners",
+    logoPlaceholder: "DATAPHYTE",
+    website: "https://dataphyte.com",
   },
   {
     id: "p6",
-    name: "Meta (Facebook / Instagram / WhatsApp)",
-    category: "Technology Exhibitors",
-    logoPlaceholder: "META CONTENT INTEGRITY",
-    website: "https://meta.com",
+    name: "TechCabal",
+    category: "Media Partners",
+    logoPlaceholder: "TECHCABAL",
+    website: "https://techcabal.com",
+  },
+];
+
+export const exhibitionFocusAreas = [
+  {
+    id: "efa-1",
+    title: "Synthetic Media & Content Labelling",
+    description: "Detection and labelling of synthetic media and AI-generated content.",
   },
   {
-    id: "p7",
-    name: "TikTok",
-    category: "Technology Exhibitors",
-    logoPlaceholder: "TIKTOK ELECTION CENTRE",
-    website: "https://tiktok.com",
+    id: "efa-2",
+    title: "Content Integrity & Platform Safety",
+    description: "Content integrity, provenance and platform election-safety measures.",
+  },
+  {
+    id: "efa-3",
+    title: "Voter Information & Civic Accessibility",
+    description: "Voter information, civic education and accessibility tools.",
+  },
+  {
+    id: "efa-4",
+    title: "Election Observation & Data Verification",
+    description: "Election observation, results analysis and data-verification technologies.",
+  },
+  {
+    id: "efa-5",
+    title: "Fact-Checking & Rapid-Response",
+    description: "Fact-checking, monitoring and rapid-response systems.",
   },
 ];
 

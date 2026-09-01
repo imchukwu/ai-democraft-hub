@@ -4,8 +4,10 @@ import { Reveal, SectionHeader } from "./primitives";
 import { speakers, type Speaker } from "@/data/forum";
 import { ExternalLink, MapPin, X } from "lucide-react";
 
-export function SpeakersGrid() {
+export function SpeakersGrid({ limit }: { limit?: number }) {
   const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
+
+  const displayedSpeakers = limit ? speakers.slice(0, limit) : speakers;
 
   return (
     <section className="border-b border-slate-800 bg-parallax-dark py-20 text-slate-100 md:py-28">
@@ -16,14 +18,16 @@ export function SpeakersGrid() {
           tone="dark"
           lede="Distinguished electoral commissioners, policy leaders, AI researchers, civil society directors, and open-source pioneers shaping democratic innovation."
           action={
-            <Cta to="/speakers" tone="accent">
-              View All Speakers
-            </Cta>
+            limit ? (
+              <Cta to="/speakers" tone="accent">
+                View All Speakers
+              </Cta>
+            ) : undefined
           }
         />
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {speakers.map((sp, idx) => (
+          {displayedSpeakers.map((sp, idx) => (
             <Reveal key={sp.id} delay={idx * 60}>
               <div
                 onClick={() => setSelectedSpeaker(sp)}

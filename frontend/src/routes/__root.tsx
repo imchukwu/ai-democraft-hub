@@ -110,6 +110,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <div className="fixed inset-0 -z-20 pointer-events-none bg-parallax-dark" />
         {children}
         <Scripts />
       </body>

@@ -15,7 +15,7 @@ function RegisterPage() {
         <div className="container-forum">
           <span className="eyebrow text-cyan-400">Convening Registration</span>
           <h1 className="mt-2 text-4xl font-extrabold text-white">Register for the Forum</h1>
-          <p className="mt-2 text-sm text-slate-300">7–11 October 2026 · International Conference Centre, Abuja, Nigeria</p>
+          <p className="mt-2 text-sm text-slate-300">7–9 October 2026 · Congress Hall, Transcorp Hilton, Abuja, Nigeria</p>
         </div>
       </div>
       <RegistrationSection />

@@ -30,11 +30,11 @@ export function VenueLogisticsSection() {
                   </h3>
 
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Herbert Macaulay Way, Central Business District, Abuja, Federal Capital Territory, Nigeria.
+                    1 Aguiyi Ironsi Street, Maitama, Abuja, Federal Capital Territory, Nigeria.
                   </p>
 
                   <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-                    The International Conference Centre (ICC) is West Africa's premier convening facility, equipped with simultaneous interpretation infrastructure, high-density optical fiber connectivity, dedicated exhibition halls, security perimeter, and press briefing suites.
+                    Congress Hall at the Transcorp Hilton Abuja is West Africa's premier convening facility, equipped with simultaneous interpretation infrastructure, high-density optical fiber connectivity, dedicated exhibition space, security perimeter, and press briefing suites.
                   </p>
                 </div>
 
@@ -42,7 +42,7 @@ export function VenueLogisticsSection() {
                 <div className="mt-6 aspect-[16/8] overflow-hidden rounded-xl bg-slate-950 border border-slate-800">
                   <img
                     src="/images/hero-forum.jpg"
-                    alt="Abuja International Conference Centre"
+                    alt="Congress Hall, Transcorp Hilton, Abuja"
                     className="h-full w-full object-cover"
                   />
                 </div>
