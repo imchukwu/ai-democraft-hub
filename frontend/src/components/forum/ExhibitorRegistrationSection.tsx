@@ -26,6 +26,18 @@ export function ExhibitorRegistrationSection() {
     representativesCount: "2",
   });
 
+  const wordCount = formData.description ? formData.description.trim().split(/\s+/).filter(Boolean).length : 0;
+  const charCount = formData.description ? formData.description.length : 0;
+
+  const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const text = e.target.value;
+    const words = text.trim().split(/\s+/).filter(Boolean);
+    if (words.length > 250 && text.length > formData.description.length) {
+      return;
+    }
+    setFormData((prev) => ({ ...prev, description: text.slice(0, 1500) }));
+  };
+
   const handleRequirementToggle = (req: string) => {
     setFormData((prev) => {
       const exists = prev.techRequirements.includes(req);
@@ -82,17 +94,17 @@ export function ExhibitorRegistrationSection() {
 
         {/* Deadline Alert Banner */}
         <Reveal className="mt-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-amber-500/40 bg-amber-500/10 p-6 text-amber-200">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-amber-500/50 bg-slate-900 p-6 text-slate-100 shadow-xl">
             <div className="flex items-start gap-3">
               <Clock className="h-6 w-6 text-amber-400 shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-base font-bold text-white">Application Deadline: 11th September 2026</h4>
-                <p className="text-xs text-amber-200/90 mt-1">
+                <h4 className="text-base font-bold text-amber-400">Application Deadline: 11th September 2026</h4>
+                <p className="text-xs text-slate-200 mt-1 leading-relaxed">
                   Exhibitor booth allocations at Congress Hall are reviewed on a rolling basis. All applications must be received before 23:59 WAT on September 11, 2026.
                 </p>
               </div>
             </div>
-            <div className="shrink-0 rounded-lg bg-amber-400 px-3.5 py-1.5 text-xs font-extrabold text-slate-950">
+            <div className="shrink-0 rounded-lg bg-amber-400 px-3.5 py-1.5 text-xs font-extrabold text-slate-950 shadow-md">
               Closing 11 Sept
             </div>
           </div>
@@ -303,13 +315,23 @@ export function ExhibitorRegistrationSection() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300">Detailed Solution Abstract & Demonstration Description *</label>
+                      <div className="flex items-center justify-between">
+                        <label className="block text-xs font-semibold text-slate-300">
+                          Detailed Solution Abstract & Demonstration Description *
+                        </label>
+                        <span className={`text-[11px] font-mono font-medium ${
+                          wordCount >= 250 || charCount >= 1500 ? "text-amber-400 font-bold" : "text-slate-400"
+                        }`}>
+                          {wordCount} / 250 words ({charCount} / 1500 chars)
+                        </span>
+                      </div>
                       <textarea
-                        rows={4}
+                        rows={5}
                         required
+                        maxLength={1500}
                         value={formData.description}
-                        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                        placeholder="Provide a detailed overview of the AI system, tool, or methodology your organization will display at Congress Hall, Transcorp Hilton. Include details on how it addresses election administration, disinformation, or democratic resilience..."
+                        onChange={handleDescriptionChange}
+                        placeholder="Provide a detailed overview of the AI system, tool, or methodology your organization will display at Congress Hall, Transcorp Hilton. Include details on how it addresses election administration, disinformation, or democratic resilience... (Max 250 words / 1,500 characters)"
                         className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                       />
                     </div>

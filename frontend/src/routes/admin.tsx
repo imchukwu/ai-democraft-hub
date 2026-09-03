@@ -529,7 +529,7 @@ function AdminPage() {
       {/* Exhibitor Modal */}
       {selectedExhibitor ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-xl rounded-2xl border border-slate-800 bg-slate-950 p-6 text-slate-100 shadow-2xl space-y-4">
+          <div className="relative w-full max-w-2xl rounded-2xl border border-slate-800 bg-slate-950 p-6 md:p-8 text-slate-100 shadow-2xl space-y-6">
             <button
               onClick={() => setSelectedExhibitor(null)}
               className="absolute top-4 right-4 grid h-8 w-8 place-items-center rounded-full border border-slate-800 bg-slate-900 text-slate-300 hover:text-white"
@@ -537,17 +537,81 @@ function AdminPage() {
               <X className="h-4 w-4" />
             </button>
 
-            <div>
-              <span className="eyebrow text-amber-400">{selectedExhibitor.category}</span>
-              <h3 className="text-xl font-bold text-white mt-1">{selectedExhibitor.organization}</h3>
-              <p className="text-xs text-slate-400">Lead: {selectedExhibitor.contactName} ({selectedExhibitor.email})</p>
+            {/* Header Info */}
+            <div className="border-b border-slate-800 pb-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full bg-amber-400/10 px-3 py-1 text-xs font-bold text-amber-300 border border-amber-400/20">
+                  {selectedExhibitor.category}
+                </span>
+                {selectedExhibitor.submittedAt ? (
+                  <span className="text-[11px] font-mono text-slate-400">
+                    Submitted: {new Date(selectedExhibitor.submittedAt).toLocaleDateString()}
+                  </span>
+                ) : null}
+              </div>
+              <h3 className="text-2xl font-extrabold text-white mt-2">{selectedExhibitor.organization}</h3>
+              {selectedExhibitor.productTitle ? (
+                <p className="text-sm font-semibold text-cyan-400 mt-0.5">
+                  Product: {selectedExhibitor.productTitle}
+                </p>
+              ) : null}
             </div>
 
-            <div className="rounded-xl border border-slate-800 bg-slate-900 p-4 space-y-2">
-              <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">Solution Abstract & Description</h4>
-              <p className="text-xs text-slate-200 leading-relaxed whitespace-pre-wrap">
-                {selectedExhibitor.description}
-              </p>
+            {/* Contact Details Grid */}
+            <div className="grid gap-3 sm:grid-cols-2 text-xs rounded-xl border border-slate-800/80 bg-slate-900/60 p-4">
+              <div>
+                <span className="text-slate-400 font-medium">Contact Person:</span>
+                <p className="font-semibold text-white mt-0.5">{selectedExhibitor.contactName}</p>
+              </div>
+              <div>
+                <span className="text-slate-400 font-medium">Email Address:</span>
+                <p className="font-semibold text-white mt-0.5">{selectedExhibitor.email}</p>
+              </div>
+              {selectedExhibitor.phone ? (
+                <div>
+                  <span className="text-slate-400 font-medium">Phone Number:</span>
+                  <p className="font-semibold text-white mt-0.5">{selectedExhibitor.phone}</p>
+                </div>
+              ) : null}
+              {selectedExhibitor.country ? (
+                <div>
+                  <span className="text-slate-400 font-medium">Country / Region:</span>
+                  <p className="font-semibold text-white mt-0.5">{selectedExhibitor.country}</p>
+                </div>
+              ) : null}
+              {selectedExhibitor.website ? (
+                <div className="sm:col-span-2">
+                  <span className="text-slate-400 font-medium">Website / Portal:</span>
+                  <p className="font-semibold text-cyan-300 mt-0.5 truncate">{selectedExhibitor.website}</p>
+                </div>
+              ) : null}
+            </div>
+
+            {/* Solution Abstract & Description Box */}
+            <div className="rounded-xl border border-cyan-500/30 bg-slate-900/90 p-5 space-y-3 shadow-inner">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
+                  Detailed Solution Abstract & Description
+                </h4>
+                <span className="text-[11px] font-mono text-slate-400">
+                  {selectedExhibitor.description ? selectedExhibitor.description.trim().split(/\s+/).filter(Boolean).length : 0} words
+                </span>
+              </div>
+              <div className="max-h-60 overflow-y-auto pr-2">
+                <p className="text-xs text-slate-200 leading-relaxed whitespace-pre-wrap font-sans">
+                  {selectedExhibitor.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Close Button */}
+            <div className="flex justify-end pt-2">
+              <button
+                onClick={() => setSelectedExhibitor(null)}
+                className="rounded-xl bg-slate-800 px-5 py-2 text-xs font-semibold text-white hover:bg-slate-700"
+              >
+                Close Abstract
+              </button>
             </div>
           </div>
         </div>
