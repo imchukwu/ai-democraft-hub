@@ -38,11 +38,13 @@ type Exhibitor = {
   organization: string;
   contactName: string;
   email: string;
-  phone: string;
+  phone?: string;
+  country?: string;
+  productTitle?: string;
   category: string;
   description: string;
-  website: string;
-  submittedAt: string;
+  website?: string;
+  submittedAt?: string;
 };
 
 type AdminStats = {
