@@ -1,7 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
-  <rect width="200" height="60" rx="8" fill="#0F172A"/>
-  <circle cx="32" cy="30" r="16" fill="#15B708"/>
-  <path d="M26 30L30 34L38 24" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="56" y="31" font-family="'Work Sans', sans-serif" font-weight="800" font-size="18" fill="#FFFFFF" letter-spacing="1">INEC</text>
-  <text x="56" y="44" font-family="'Work Sans', sans-serif" font-weight="500" font-size="9" fill="#94A3B8" letter-spacing="0.5">NIGERIA</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none">
+  <!-- INEC Official Brand SVG Logo -->
+  <g transform="translate(4, 4)">
+    <circle cx="28" cy="28" r="26" fill="#008751"/>
+    <circle cx="28" cy="28" r="22" fill="#FFFFFF"/>
+    <circle cx="28" cy="28" r="20" fill="#008751"/>
+    <!-- Electoral Ballot Box & Eagle Symbol -->
+    <path d="M19 32L25 38L37 22" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28 12L31 17H25L28 12Z" fill="#F59E0B"/>
+  </g>
+  <text x="66" y="32" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="22" fill="#008751" letter-spacing="1.5">INEC</text>
+  <text x="66" y="47" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="9" fill="#047857" letter-spacing="1">NIGERIA ELECTORAL COMMISSION</text>
 </svg>

@@ -158,7 +158,7 @@ export function RegistrationSection() {
                           value={formData.fullName}
                           onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                           placeholder="Dr. Jane Doe"
-                          className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
                         />
                       </div>
 
@@ -171,7 +171,7 @@ export function RegistrationSection() {
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             placeholder="jane@organization.org"
-                            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
+                            className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
                           />
                         </div>
                         <div>
@@ -182,7 +182,7 @@ export function RegistrationSection() {
                             value={formData.country}
                             onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                             placeholder="Nigeria, South Africa, Kenya, etc."
-                            className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
+                            className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
                           />
                         </div>
                       </div>
@@ -195,7 +195,7 @@ export function RegistrationSection() {
                           value={formData.organization}
                           onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                           placeholder="INEC, Civil Society Org, University, Tech Platform"
-                          className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
                         />
                       </div>
 
@@ -204,7 +204,7 @@ export function RegistrationSection() {
                         <select
                           value={formData.category}
                           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                          className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3.5 py-2 text-sm text-white focus:border-cyan-400 focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white focus:border-cyan-400 focus:outline-none"
                         >
                           {participationCategories.map((c, i) => (
                             <option key={i} value={c.title}>{c.title}</option>
@@ -215,7 +215,7 @@ export function RegistrationSection() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="mt-2 w-full rounded-md bg-cyan-400 py-3 text-sm font-bold text-slate-950 hover:bg-cyan-300 transition-colors disabled:opacity-50"
+                        className="mt-2 w-full rounded-lg bg-cyan-400 py-3.5 text-base font-bold text-slate-950 hover:bg-cyan-300 transition-colors disabled:opacity-50 shadow-md active:scale-[0.99]"
                       >
                         {isSubmitting ? "Submitting Registration..." : "Submit Delegate Registration"}
                       </button>

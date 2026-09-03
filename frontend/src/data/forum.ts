@@ -573,7 +573,7 @@ export const partners: Partner[] = [
     category: "Host & Convener",
     logoPlaceholder: "YIAGA AFRICA",
     website: "https://yiaga.org",
-    logoUrl: "/images/partners/yiaga-africa.svg",
+    logoUrl: "/images/partners/yiaga.png",
   },
   {
     id: "p2",
@@ -581,7 +581,7 @@ export const partners: Partner[] = [
     category: "Strategic Partners",
     logoPlaceholder: "INEC NIGERIA",
     website: "https://inecnigeria.org",
-    logoUrl: "/images/partners/inec.svg",
+    logoUrl: "/images/partners/inec.png",
   },
   {
     id: "p3",
@@ -597,7 +597,7 @@ export const partners: Partner[] = [
     category: "Knowledge Partners",
     logoPlaceholder: "CJID AFRICA",
     website: "https://thecjid.org",
-    logoUrl: "/images/partners/cjid.svg",
+    logoUrl: "/images/partners/cjid.jpg",
   },
   {
     id: "p5",
@@ -605,7 +605,7 @@ export const partners: Partner[] = [
     category: "Media Partners",
     logoPlaceholder: "DATAPHYTE",
     website: "https://dataphyte.com",
-    logoUrl: "/images/partners/dataphyte.svg",
+    logoUrl: "/images/partners/dataphyte.jpg",
   },
   {
     id: "p6",
@@ -613,7 +613,7 @@ export const partners: Partner[] = [
     category: "Media Partners",
     logoPlaceholder: "TECHCABAL",
     website: "https://techcabal.com",
-    logoUrl: "/images/partners/techcabal.svg",
+    logoUrl: "/images/partners/techcabal.jpg",
   },
   {
     id: "p7",
@@ -629,7 +629,7 @@ export const partners: Partner[] = [
     category: "Technology Partners",
     logoPlaceholder: "META",
     website: "https://meta.com",
-    logoUrl: "/images/partners/meta.svg",
+    logoUrl: "/images/partners/meta.jpg",
   },
   {
     id: "p9",
@@ -637,7 +637,7 @@ export const partners: Partner[] = [
     category: "Technology Partners",
     logoPlaceholder: "TIKTOK",
     website: "https://tiktok.com",
-    logoUrl: "/images/partners/tiktok.svg",
+    logoUrl: "/images/partners/tiktok.jpg",
   },
 ];
 

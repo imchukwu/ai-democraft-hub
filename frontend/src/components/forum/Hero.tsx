@@ -16,33 +16,33 @@ export function Hero() {
               <span>{forumMeta.convener} · AIDF 2026</span>
             </div>
 
-            <h1 className="mt-3.5 text-balance text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
+            <h1 className="mt-3.5 text-balance text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.1] font-extrabold tracking-tight text-foreground">
               {forumMeta.themeHeadline}
             </h1>
 
-            <p className="mt-3.5 text-base font-semibold tracking-tight text-foreground/90 sm:text-lg leading-snug">
+            <p className="mt-3.5 text-sm sm:text-base font-semibold tracking-tight text-foreground/90 sm:text-lg leading-snug">
               {forumMeta.themeSubtitle}
             </p>
 
-            <div className="mt-5 flex flex-wrap items-center gap-3 text-xs font-semibold text-foreground/80">
-              <div className="flex items-center gap-2 rounded-lg border border-border/80 bg-card px-3 py-1.5 shadow-sm">
-                <Calendar className="h-4 w-4 text-primary" />
+            <div className="mt-5 flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3 text-xs font-semibold text-foreground/80">
+              <div className="flex items-center gap-2 rounded-lg border border-border/80 bg-card px-3 py-2 shadow-sm">
+                <Calendar className="h-4 w-4 text-primary shrink-0" />
                 <span>{forumMeta.date}</span>
               </div>
-              <div className="flex items-center gap-2 rounded-lg border border-border/80 bg-card px-3 py-1.5 shadow-sm">
-                <MapPin className="h-4 w-4 text-primary" />
-                <span>{forumMeta.venue}</span>
+              <div className="flex items-center gap-2 rounded-lg border border-border/80 bg-card px-3 py-2 shadow-sm">
+                <MapPin className="h-4 w-4 text-primary shrink-0" />
+                <span className="truncate">{forumMeta.venue}</span>
               </div>
             </div>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Cta to="/register" tone="primary">
+            <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3">
+              <Cta to="/register" tone="primary" className="w-full sm:w-auto justify-center">
                 Register for the Forum
               </Cta>
-              <Cta to="/program" tone="outline" arrow={false}>
+              <Cta to="/program" tone="outline" arrow={false} className="w-full sm:w-auto justify-center">
                 View Program
               </Cta>
-              <Cta to="/participants" tone="outline" arrow={false}>
+              <Cta to="/participants" tone="outline" arrow={false} className="w-full sm:w-auto justify-center">
                 Delegate Info
               </Cta>
             </div>

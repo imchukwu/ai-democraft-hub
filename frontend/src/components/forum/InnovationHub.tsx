@@ -153,12 +153,21 @@ export function InnovationHub() {
 
         {/* Section Action Footer */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4 border-t border-slate-800 pt-8">
-          <Cta to="/exhibitor-register" tone="accent">
-            Apply as an Exhibitor (Deadline 11 Sept)
-          </Cta>
-          <Cta to="/sandbox" tone="outline" arrow={false}>
-            Explore Exhibition & Challenge Guide
-          </Cta>
+          <Link
+            to="/exhibitor-register"
+            className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#FEA105] px-6 py-3.5 text-sm font-extrabold text-slate-950 shadow-lg shadow-amber-500/20 transition-all hover:bg-amber-400 hover:shadow-xl"
+          >
+            <span>Apply as an Exhibitor (Deadline 11 Sept)</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+
+          <Link
+            to="/sandbox"
+            className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg transition-all hover:bg-cyan-300 hover:shadow-xl"
+          >
+            <span>View Exhibition & Pitch Details</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

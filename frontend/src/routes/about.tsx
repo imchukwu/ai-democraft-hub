@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/forum/Navbar";
 import { EventCountdownBar } from "@/components/forum/EventCountdownBar";
 import { Footer } from "@/components/forum/Footer";
@@ -6,6 +6,7 @@ import { Cta } from "@/components/forum/cta";
 import { Reveal, SectionHeader } from "@/components/forum/primitives";
 import { forumMeta, abujaAccordPledges } from "@/data/forum";
 import {
+  ArrowRight,
   Award,
   BookOpen,
   CheckCircle2,
@@ -70,7 +71,7 @@ function AboutPage() {
 
           <Reveal className="mt-12 space-y-6 text-base text-muted-foreground leading-relaxed">
             <p>
-              The AI and Democracy Forum is hosted by Yiaga Africa and partners as a national platform to examine, ahead of 2027, how Nigeria can govern and harness AI to strengthen rather than undermine the credibility of the elections and the resilience of Nigeria's democracy. This national multi-stakeholder dialogue will explore the risks and opportunities of artificial intelligence for democracy and elections in Nigeria ahead of 2027. It aims to establish a platform for civil society, electoral commissions, political parties and technology companies to build a shared understanding of AI-enabled threats to electoral integrity and the necessary safeguards required to counter them.
+              The AI and Democracy Forum is hosted by Yiaga Africa and partners as a national platform to examine, ahead of 2027, how Nigeria can govern and harness AI to strengthen rather than undermine the credibility of the elections and the resilience of Nigeria's democracy. This national multi-stakeholder dialogue will explore the risks and opportunities of artificial intelligence for democracy and elections in Nigeria ahead of 2027. It aims to establish a platform for civil society, electoral commissions, political parties, technology companies and media partners to build a shared understanding of AI-enabled threats to electoral integrity and the necessary safeguards required to counter them.
             </p>
             <p>
               The AIDF will feature a high-level opening plenary, “Will Algorithms Decide the 2027 Vote?”, bringing together electoral, government, civil society, media, and technology leaders to reflect on the implications of AI for Nigeria's 2027 elections. This will be followed by thematic sessions and panels organized around the six core themes, combining expert insights, evidence, and cross-sector debate. The programme will also include an AI & Democracy Exhibition, where technology companies and innovators will showcase AI tools designed to support democracy and credible elections, as well as an AI for Elections Innovation Sandbox, featuring live pitches from innovators competing for an implementation grant to implement AI-powered ideas for the 2027 elections. In addition, masterclasses and skills sessions will provide practical training for election observers, journalists, party agents, and civil society actors on how to detect and respond to AI-enabled electoral threats.
@@ -239,9 +240,13 @@ function AboutPage() {
             <Cta to="/register" tone="primary">
               Register as a Delegate
             </Cta>
-            <Cta to="/sandbox" tone="outline" arrow={false}>
-              Explore Exhibition & Sandbox
-            </Cta>
+            <Link
+              to="/sandbox"
+              className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg transition-all hover:bg-cyan-300 hover:shadow-xl"
+            >
+              <span>View Innovation & Exhibition Hub</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>

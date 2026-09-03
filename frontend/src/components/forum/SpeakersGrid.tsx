@@ -67,12 +67,12 @@ export function SpeakersGrid({ limit }: { limit?: number }) {
 
       {/* Speaker Profile Modal */}
       {selectedSpeaker ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 p-8 text-slate-100 shadow-2xl animate-in fade-in zoom-in duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
+          <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl border border-slate-800 bg-slate-950 p-5 sm:p-8 text-slate-100 shadow-2xl animate-in fade-in zoom-in duration-200">
             <button
               type="button"
               onClick={() => setSelectedSpeaker(null)}
-              className="absolute top-6 right-6 grid h-10 w-10 place-items-center rounded-full border border-slate-800 bg-slate-900 text-slate-300 transition-colors hover:bg-slate-800 hover:text-white"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 grid h-9 w-9 place-items-center rounded-full border border-slate-800 bg-slate-900 text-slate-300 transition-colors hover:bg-slate-800 hover:text-white z-10"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />

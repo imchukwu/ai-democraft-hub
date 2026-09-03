@@ -164,7 +164,7 @@ export function ExhibitorRegistrationSection() {
                         value={formData.organization}
                         onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                         placeholder="e.g. OpenDemocracy AI Labs, Microsoft, Meta, Civic Tech Ltd"
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
+                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                       />
                     </div>
 
@@ -173,7 +173,7 @@ export function ExhibitorRegistrationSection() {
                       <select
                         value={formData.orgType}
                         onChange={(e) => setFormData({ ...formData, orgType: e.target.value })}
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none"
+                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white focus:border-amber-400 focus:outline-none"
                       >
                         <option value="GovTech / Tech Platform">GovTech / Commercial Tech Platform</option>
                         <option value="Civic Tech & NGO Lab">Civic Tech / Non-Profit Lab</option>
@@ -192,7 +192,7 @@ export function ExhibitorRegistrationSection() {
                         value={formData.country}
                         onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                         placeholder="Nigeria, Ghana, Kenya, South Africa, UK, USA, etc."
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
+                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                       />
                     </div>
 
@@ -203,7 +203,7 @@ export function ExhibitorRegistrationSection() {
                         value={formData.website}
                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                         placeholder="https://yourorganization.com"
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
+                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -224,7 +224,7 @@ export function ExhibitorRegistrationSection() {
                         value={formData.contactName}
                         onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
                         placeholder="Dr. Samuel Okonkwo"
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
+                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                       />
                     </div>
 
@@ -236,7 +236,7 @@ export function ExhibitorRegistrationSection() {
                         value={formData.jobTitle}
                         onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
                         placeholder="Head of Innovation / Director of Partnerships"
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
+                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                       />
                     </div>
 
@@ -248,7 +248,7 @@ export function ExhibitorRegistrationSection() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="samuel@organization.com"
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
+                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                       />
                     </div>
 
@@ -260,7 +260,7 @@ export function ExhibitorRegistrationSection() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+234 800 000 0000"
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
+                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -279,7 +279,7 @@ export function ExhibitorRegistrationSection() {
                         <select
                           value={formData.category}
                           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                          className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none"
+                          className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white focus:border-amber-400 focus:outline-none"
                         >
                           <option value="Civic Tech & AI Innovation">Civic Tech & AI Innovation</option>
                           <option value="Platform Safety & Content Integrity">Platform Safety & Content Integrity</option>
@@ -297,7 +297,7 @@ export function ExhibitorRegistrationSection() {
                           value={formData.productTitle}
                           onChange={(e) => setFormData({ ...formData, productTitle: e.target.value })}
                           placeholder="e.g. DeepfakeShield Africa v2.0"
-                          className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
+                          className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                         />
                       </div>
                     </div>
@@ -310,68 +310,8 @@ export function ExhibitorRegistrationSection() {
                         value={formData.description}
                         onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                         placeholder="Provide a detailed overview of the AI system, tool, or methodology your organization will display at Congress Hall, Transcorp Hilton. Include details on how it addresses election administration, disinformation, or democratic resilience..."
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
+                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-base text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"
                       />
-                    </div>
-                  </div>
-                </div>
-
-                {/* SECTION 4: Booth & Technical Requirements */}
-                <div>
-                  <h3 className="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-                    <Calendar className="h-5 w-5 text-amber-400" />
-                    <span>4. Exhibition Booth & On-Site Requirements</span>
-                  </h3>
-
-                  <div className="mt-4 grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300">Preferred Booth Setup *</label>
-                      <select
-                        value={formData.boothType}
-                        onChange={(e) => setFormData({ ...formData, boothType: e.target.value })}
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none"
-                      >
-                        <option value="Standard 3x3m Booth">Standard Shell Scheme Booth (3m x 3m)</option>
-                        <option value="Custom Pavilion Space">Custom Pavilion Space (6m x 3m)</option>
-                        <option value="Digital Kiosk Demo Station">Digital Kiosk Demo Station</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300">On-Site Exhibitor Badges Required *</label>
-                      <select
-                        value={formData.representativesCount}
-                        onChange={(e) => setFormData({ ...formData, representativesCount: e.target.value })}
-                        className="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white focus:border-amber-400 focus:outline-none"
-                      >
-                        <option value="1">1 Delegate Badge Pass</option>
-                        <option value="2">2 Delegate Badge Passes</option>
-                        <option value="3">3 Delegate Badge Passes</option>
-                        <option value="4">4 Delegate Badge Passes</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="mt-4">
-                    <label className="block text-xs font-semibold text-slate-300 mb-2">Technical & Infrastructure Requirements (Select all that apply)</label>
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      {[
-                        "High-Speed Dedicated Fiber Ethernet",
-                        "High-Density Public WiFi Access",
-                        "220V Uninterruptible Power Supply (UPS)",
-                        "55-inch HD Display Monitor / Stand",
-                        "Live Pitch Slot on Sandbox Stage",
-                      ].map((item) => (
-                        <label key={item} className="flex items-center gap-2.5 rounded-lg border border-slate-800 bg-slate-900/60 px-3.5 py-2 text-xs text-slate-300 cursor-pointer hover:border-amber-400/50">
-                          <input
-                            type="checkbox"
-                            checked={formData.techRequirements.includes(item)}
-                            onChange={() => handleRequirementToggle(item)}
-                            className="rounded border-slate-700 text-amber-400 focus:ring-amber-400 bg-slate-950"
-                          />
-                          <span>{item}</span>
-                        </label>
-                      ))}
                     </div>
                   </div>
                 </div>
@@ -380,7 +320,7 @@ export function ExhibitorRegistrationSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full rounded-xl bg-amber-400 py-4 text-base font-bold text-slate-950 hover:bg-amber-300 transition-colors shadow-lg disabled:opacity-50"
+                    className="w-full rounded-xl bg-amber-400 py-4 text-base font-bold text-slate-950 hover:bg-amber-300 transition-colors shadow-lg disabled:opacity-50 active:scale-[0.99]"
                   >
                     {isSubmitting ? "Submitting Application to Server..." : "Submit Exhibitor Application (Deadline 11th Sept 2026)"}
                   </button>

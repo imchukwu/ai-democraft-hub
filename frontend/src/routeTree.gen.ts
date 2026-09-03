@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ExhibitorRegisterRouteImport } from './routes/exhibitor-register'
 import { Route as ExhibitorsRouteImport } from './routes/exhibitors'
 import { Route as ParticipantsRouteImport } from './routes/participants'
@@ -30,6 +31,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExhibitorRegisterRoute = ExhibitorRegisterRouteImport.update({
@@ -86,6 +92,7 @@ const SpeakersRoute = SpeakersRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/exhibitor-register': typeof ExhibitorRegisterRoute
   '/exhibitors': typeof ExhibitorsRoute
   '/participants': typeof ParticipantsRoute
@@ -100,6 +107,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/exhibitor-register': typeof ExhibitorRegisterRoute
   '/exhibitors': typeof ExhibitorsRoute
   '/participants': typeof ParticipantsRoute
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/exhibitor-register': typeof ExhibitorRegisterRoute
   '/exhibitors': typeof ExhibitorsRoute
   '/participants': typeof ParticipantsRoute
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
     | '/exhibitor-register'
     | '/exhibitors'
     | '/participants'
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/admin'
     | '/exhibitor-register'
     | '/exhibitors'
     | '/participants'
@@ -159,6 +170,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
     | '/exhibitor-register'
     | '/exhibitors'
     | '/participants'
@@ -174,6 +186,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
   ExhibitorRegisterRoute: typeof ExhibitorRegisterRoute
   ExhibitorsRoute: typeof ExhibitorsRoute
   ParticipantsRoute: typeof ParticipantsRoute
@@ -200,6 +213,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exhibitor-register': {
@@ -278,6 +298,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
   ExhibitorRegisterRoute: ExhibitorRegisterRoute,
   ExhibitorsRoute: ExhibitorsRoute,
   ParticipantsRoute: ParticipantsRoute,

@@ -33,18 +33,18 @@ export function PartnersGrid() {
                   <h3 className="text-sm font-bold tracking-wider text-primary uppercase border-b border-border pb-2">
                     {cat}
                   </h3>
-                  <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {categoryPartners.map((p) => (
                       <a
                         key={p.id}
                         href={p.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center justify-between gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:border-primary hover:shadow-md"
+                        className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-border bg-card p-5 sm:p-6 transition-all hover:border-primary hover:shadow-md"
                       >
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-1.5">
-                            <span className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+                            <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm sm:text-base leading-tight">
                               {p.name}
                             </span>
                             <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
@@ -56,15 +56,15 @@ export function PartnersGrid() {
 
                         {/* Logo Image or Fallback */}
                         {p.logoUrl ? (
-                          <div className="flex h-14 w-32 shrink-0 items-center justify-center rounded-lg bg-slate-950 p-2 border border-slate-800 transition-transform group-hover:scale-105">
+                          <div className="flex h-16 w-full sm:w-36 shrink-0 items-center justify-center rounded-lg bg-white p-2 border border-border/80 shadow-sm transition-transform group-hover:scale-105">
                             <img
                               src={p.logoUrl}
                               alt={`${p.name} logo`}
-                              className="h-full w-full object-contain"
+                              className="h-full max-h-12 w-full object-contain"
                             />
                           </div>
                         ) : (
-                          <div className="grid h-12 w-28 shrink-0 place-items-center rounded-lg bg-slate-900 font-mono text-[10px] font-bold text-cyan-300 border border-slate-800">
+                          <div className="grid h-12 w-full sm:w-32 shrink-0 place-items-center rounded-lg bg-secondary/80 font-mono text-[10px] font-bold text-foreground border border-border">
                             <Building className="h-4 w-4 mb-0.5" />
                             <span>{p.logoPlaceholder}</span>
                           </div>

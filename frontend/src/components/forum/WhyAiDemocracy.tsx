@@ -21,7 +21,7 @@ export function WhyAiDemocracy() {
             </div>
 
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-              The AI and Democracy Forum is hosted by Yiaga Africa and partners as a national platform to examine, ahead of 2027, how Nigeria can govern and harness AI to strengthen rather than undermine the credibility of the elections and the resilience of Nigeria's democracy. This national multi-stakeholder dialogue will explore the risks and opportunities of artificial intelligence for democracy and elections in Nigeria ahead of 2027. It aims to establish a platform for civil society, electoral commissions, political parties and technology companies to build a shared understanding of AI-enabled threats to electoral integrity and the necessary safeguards required to counter them.
+              The AI and Democracy Forum is hosted by Yiaga Africa and partners as a national platform to examine, ahead of 2027, how Nigeria can govern and harness AI to strengthen rather than undermine the credibility of the elections and the resilience of Nigeria's democracy. This national multi-stakeholder dialogue will explore the risks and opportunities of artificial intelligence for democracy and elections in Nigeria ahead of 2027. It aims to establish a platform for civil society, electoral commissions, political parties, technology companies and media partners to build a shared understanding of AI-enabled threats to electoral integrity and the necessary safeguards required to counter them.
             </p>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal pt-4 border-t border-slate-800">

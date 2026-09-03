@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
-  <rect width="200" height="60" rx="8" fill="#0F172A"/>
-  <circle cx="28" cy="30" r="12" fill="#FEA105"/>
-  <text x="28" y="35" font-family="'Work Sans', sans-serif" font-weight="900" font-size="12" fill="#000000" text-anchor="middle">TC</text>
-  <text x="48" y="34" font-family="'Work Sans', sans-serif" font-weight="800" font-size="14" fill="#FFFFFF">TechCabal</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none">
+  <!-- TechCabal Official Brand SVG Logo -->
+  <rect x="8" y="10" width="44" height="44" rx="8" fill="#FF6600"/>
+  <text x="30" y="38" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5">TC</text>
+  <text x="60" y="38" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" fill="#111827" letter-spacing="0.5">TECHCABAL</text>
 </svg>
