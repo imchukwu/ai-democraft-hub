@@ -26,7 +26,7 @@ function ExhibitorsPage() {
           </p>
           <div className="mt-6">
             <Link
-              to="/exhibitor-register"
+              to="/exhibitor"
               className="inline-flex items-center rounded-lg bg-amber-400 px-6 py-3 text-sm font-bold text-slate-950 hover:bg-amber-300 transition-colors"
             >
               Apply for Exhibitor Booth (Deadline 11 Sept)

@@ -28,12 +28,12 @@ export function SpeakersGrid({ limit }: { limit?: number }) {
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {displayedSpeakers.map((sp, idx) => (
-            <Reveal key={sp.id} delay={idx * 60}>
+            <Reveal key={sp.id} delay={idx * 60} className="h-full">
               <div
                 onClick={() => setSelectedSpeaker(sp)}
-                className="group cursor-pointer flex flex-col justify-between overflow-hidden rounded-xl border border-slate-800 bg-slate-900 p-6 transition-all hover:border-cyan-400 hover:shadow-2xl"
+                className="group cursor-pointer flex h-full flex-col justify-between overflow-hidden rounded-xl border border-slate-800 bg-slate-900 p-6 transition-all hover:border-cyan-400 hover:shadow-2xl"
               >
-                <div>
+                <div className="flex flex-1 flex-col">
                   {/* Speaker Real Portrait */}
                   <div className="relative aspect-square overflow-hidden rounded-lg bg-slate-950 border border-slate-800">
                     <img

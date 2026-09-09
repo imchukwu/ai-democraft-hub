@@ -3,7 +3,7 @@ import { Navbar } from "@/components/forum/Navbar";
 import { Footer } from "@/components/forum/Footer";
 import { ExhibitorRegistrationSection } from "@/components/forum/ExhibitorRegistrationSection";
 
-export const Route = createFileRoute("/exhibitor-register")({
+export const Route = createFileRoute("/exhibitor")({
   component: ExhibitorRegisterPage,
 });
 

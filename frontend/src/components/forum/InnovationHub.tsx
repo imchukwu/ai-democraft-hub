@@ -78,7 +78,7 @@ export function InnovationHub() {
           </div>
 
           <Link
-            to="/exhibitor-register"
+            to="/exhibitor"
             className="inline-flex items-center gap-2 text-xs font-bold text-[#FEA105] hover:underline"
           >
             <span>Apply for Booth Space or Pitch Slot (Deadline 11 Sept)</span>
@@ -154,7 +154,7 @@ export function InnovationHub() {
         {/* Section Action Footer */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4 border-t border-slate-800 pt-8">
           <Link
-            to="/exhibitor-register"
+            to="/exhibitor"
             className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#FEA105] px-6 py-3.5 text-sm font-extrabold text-slate-950 shadow-lg shadow-amber-500/20 transition-all hover:bg-amber-400 hover:shadow-xl"
           >
             <span>Apply as an Exhibitor (Deadline 11 Sept)</span>

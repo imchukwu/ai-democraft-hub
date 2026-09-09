@@ -42,9 +42,6 @@ export function Hero() {
               <Cta to="/program" tone="outline" arrow={false} className="w-full sm:w-auto justify-center">
                 View Program
               </Cta>
-              <Cta to="/participants" tone="outline" arrow={false} className="w-full sm:w-auto justify-center">
-                Delegate Info
-              </Cta>
             </div>
           </Reveal>
         </div>

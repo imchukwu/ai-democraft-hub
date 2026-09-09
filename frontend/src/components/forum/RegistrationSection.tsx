@@ -74,7 +74,7 @@ export function RegistrationSection() {
               </div>
             </div>
 
-            <Cta to="/exhibitor-register" tone="accent" className="shrink-0">
+            <Cta to="/exhibitor" tone="accent" className="shrink-0">
               Apply for Exhibitor Booth <ArrowRight className="h-4 w-4 ml-1" />
             </Cta>
           </div>

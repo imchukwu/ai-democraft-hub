@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
-import { Route as ExhibitorRegisterRouteImport } from './routes/exhibitor-register'
+import { Route as ExhibitorRouteImport } from './routes/exhibitor'
 import { Route as ExhibitorsRouteImport } from './routes/exhibitors'
 import { Route as ParticipantsRouteImport } from './routes/participants'
 import { Route as PartnersRouteImport } from './routes/partners'
@@ -38,9 +38,9 @@ const AdminRoute = AdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ExhibitorRegisterRoute = ExhibitorRegisterRouteImport.update({
-  id: '/exhibitor-register',
-  path: '/exhibitor-register',
+const ExhibitorRoute = ExhibitorRouteImport.update({
+  id: '/exhibitor',
+  path: '/exhibitor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExhibitorsRoute = ExhibitorsRouteImport.update({
@@ -93,7 +93,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
-  '/exhibitor-register': typeof ExhibitorRegisterRoute
+  '/exhibitor': typeof ExhibitorRoute
   '/exhibitors': typeof ExhibitorsRoute
   '/participants': typeof ParticipantsRoute
   '/partners': typeof PartnersRoute
@@ -108,7 +108,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
-  '/exhibitor-register': typeof ExhibitorRegisterRoute
+  '/exhibitor': typeof ExhibitorRoute
   '/exhibitors': typeof ExhibitorsRoute
   '/participants': typeof ParticipantsRoute
   '/partners': typeof PartnersRoute
@@ -124,7 +124,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
-  '/exhibitor-register': typeof ExhibitorRegisterRoute
+  '/exhibitor': typeof ExhibitorRoute
   '/exhibitors': typeof ExhibitorsRoute
   '/participants': typeof ParticipantsRoute
   '/partners': typeof PartnersRoute
@@ -141,7 +141,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/admin'
-    | '/exhibitor-register'
+    | '/exhibitor'
     | '/exhibitors'
     | '/participants'
     | '/partners'
@@ -156,7 +156,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/admin'
-    | '/exhibitor-register'
+    | '/exhibitor'
     | '/exhibitors'
     | '/participants'
     | '/partners'
@@ -171,7 +171,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/admin'
-    | '/exhibitor-register'
+    | '/exhibitor'
     | '/exhibitors'
     | '/participants'
     | '/partners'
@@ -187,7 +187,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRoute
-  ExhibitorRegisterRoute: typeof ExhibitorRegisterRoute
+  ExhibitorRoute: typeof ExhibitorRoute
   ExhibitorsRoute: typeof ExhibitorsRoute
   ParticipantsRoute: typeof ParticipantsRoute
   PartnersRoute: typeof PartnersRoute
@@ -222,11 +222,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/exhibitor-register': {
-      id: '/exhibitor-register'
-      path: '/exhibitor-register'
-      fullPath: '/exhibitor-register'
-      preLoaderRoute: typeof ExhibitorRegisterRouteImport
+    '/exhibitor': {
+      id: '/exhibitor'
+      path: '/exhibitor'
+      fullPath: '/exhibitor'
+      preLoaderRoute: typeof ExhibitorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exhibitors': {
@@ -299,7 +299,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRoute,
-  ExhibitorRegisterRoute: ExhibitorRegisterRoute,
+  ExhibitorRoute: ExhibitorRoute,
   ExhibitorsRoute: ExhibitorsRoute,
   ParticipantsRoute: ParticipantsRoute,
   PartnersRoute: PartnersRoute,

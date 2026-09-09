@@ -1,6 +1,6 @@
 /**
  * Single source of truth for all AI and Democracy Forum (AIDF 2026) content.
- * Hosted by Yiaga Africa and partners.
+ * Hosted by Yiaga Africa and Partners.
  */
 
 export const forumMeta = {
@@ -8,7 +8,7 @@ export const forumMeta = {
   fullName: "AI and Democracy Forum",
   themeHeadline: "WILL ALGORITHMS DETERMINE THE 2027 VOTE?",
   themeSubtitle: "Safeguarding Nigeria's 2027 General Election in the Age of Artificial Intelligence",
-  convener: "Yiaga Africa and partners",
+  convener: "Yiaga Africa and Partners",
   date: "7th – 9th October 2026",
   dateShort: "7–9 Oct 2026",
   location: "Abuja, Nigeria",
@@ -17,7 +17,7 @@ export const forumMeta = {
   tagline:
     "A national multi-stakeholder platform examining how Nigeria can govern and harness AI to strengthen the credibility of the 2027 elections and the resilience of its democracy.",
   intro:
-    "Hosted by Yiaga Africa and partners ahead of the 2027 general elections, the AI and Democracy Forum (AIDF 2026) brings together electoral commissions, political parties, civil society, technology platforms, journalists, and researchers to address AI-enabled threats to electoral integrity and establish actionable safeguards.",
+    "Hosted by Yiaga Africa and Partners ahead of the 2027 general elections, the AI and Democracy Forum (AIDF 2026) brings together electoral commissions, political parties, civil society, technology platforms, journalists, and researchers to address AI-enabled threats to electoral integrity and establish actionable safeguards.",
   registrationUrl: "/register",
   contactEmail: "aidf@yiaga.org",
   heroImage: "/images/attached-1.jpg",
