@@ -81,7 +81,7 @@ export function InnovationHub() {
             to="/exhibitor"
             className="inline-flex items-center gap-2 text-xs font-bold text-[#FEA105] hover:underline"
           >
-            <span>Apply for Booth Space or Pitch Slot (Deadline 11 Sept)</span>
+            <span>Apply for Booth Space or Pitch Slot (Deadline 18 Sept)</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -123,7 +123,7 @@ export function InnovationHub() {
 
             <div className="rounded-xl border border-amber-500/30 bg-slate-900/90 p-6 text-center">
               <p className="text-xs text-amber-300 font-semibold">
-                * Note: Exhibitor applications are currently open until 11th September 2026. The official lineup of submitted solution products will be published following committee review.
+                * Note: Exhibitor applications are currently open until 18th September 2026. The official lineup of submitted solution products will be published following committee review.
               </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ export function InnovationHub() {
             to="/exhibitor"
             className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#FEA105] px-6 py-3.5 text-sm font-extrabold text-slate-950 shadow-lg shadow-amber-500/20 transition-all hover:bg-amber-400 hover:shadow-xl"
           >
-            <span>Apply as an Exhibitor (Deadline 11 Sept)</span>
+            <span>Apply as an Exhibitor (Deadline 18 Sept)</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
 

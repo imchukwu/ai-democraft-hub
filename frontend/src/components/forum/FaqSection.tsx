@@ -27,7 +27,7 @@ const faqs: FaqItem[] = [
   {
     question: "How can startups or civic tech labs apply for The Sandbox showcase?",
     answer:
-      "Sandbox applications remain open until 10 September 2026. Teams building open-source AI auditing tools, election verification pipelines, or local language civic bots can submit their project via the Sandbox page.",
+      "Sandbox applications remain open until 18 September 2026. Teams building open-source AI auditing tools, election verification pipelines, or local language civic bots can submit their project via the Sandbox page.",
   },
   {
     question: "Are travel bursaries or grants available for youth and civil society?",

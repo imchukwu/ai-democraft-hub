@@ -341,7 +341,7 @@ function AdminPage() {
           <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 flex items-center justify-between shadow-lg">
             <div>
               <span className="eyebrow text-emerald-400">Exhibitor Deadline</span>
-              <h3 className="mt-2 text-xl font-bold text-white">11th Sept 2026</h3>
+              <h3 className="mt-2 text-xl font-bold text-white">18th Sept 2026</h3>
               <p className="mt-1 text-xs text-emerald-400 font-semibold">
                 {stats?.isDeadlinePassed ? "Deadline Closed" : "Open"}
               </p>

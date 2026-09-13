@@ -22,14 +22,14 @@ function ExhibitorsPage() {
           <span className="eyebrow text-amber-400">Applications Open</span>
           <h2 className="mt-3 text-2xl font-bold text-white">Exhibitor Applications Under Review</h2>
           <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-            The official AIDF 2026 Exhibitors Directory will be published after the application deadline on 11th September 2026. Tech platforms, GovTech labs, and civic innovators can apply now for dedicated booth space.
+            The official AIDF 2026 Exhibitors Directory will be published after the application deadline on 18th September 2026. Tech platforms, GovTech labs, and civic innovators can apply now for dedicated booth space.
           </p>
           <div className="mt-6">
             <Link
               to="/exhibitor"
               className="inline-flex items-center rounded-lg bg-amber-400 px-6 py-3 text-sm font-bold text-slate-950 hover:bg-amber-300 transition-colors"
             >
-              Apply for Exhibitor Booth (Deadline 11 Sept)
+              Apply for Exhibitor Booth (Deadline 18 Sept)
             </Link>
           </div>
         </div>

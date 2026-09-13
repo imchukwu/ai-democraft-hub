@@ -98,14 +98,14 @@ export function ExhibitorRegistrationSection() {
             <div className="flex items-start gap-3">
               <Clock className="h-6 w-6 text-amber-400 shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-base font-bold text-amber-400">Application Deadline: 11th September 2026</h4>
+                <h4 className="text-base font-bold text-amber-400">Application Deadline: 18th September 2026</h4>
                 <p className="text-xs text-slate-200 mt-1 leading-relaxed">
-                  Exhibitor booth allocations at Congress Hall are reviewed on a rolling basis. All applications must be received before 23:59 WAT on September 11, 2026.
+                  Exhibitor booth allocations at Congress Hall are reviewed on a rolling basis. All applications must be received before 23:59 WAT on September 18, 2026.
                 </p>
               </div>
             </div>
             <div className="shrink-0 rounded-lg bg-amber-400 px-3.5 py-1.5 text-xs font-extrabold text-slate-950 shadow-md">
-              Closing 11 Sept
+              Closing 18 Sept
             </div>
           </div>
         </Reveal>
@@ -344,7 +344,7 @@ export function ExhibitorRegistrationSection() {
                     disabled={isSubmitting}
                     className="w-full rounded-xl bg-amber-400 py-4 text-base font-bold text-slate-950 hover:bg-amber-300 transition-colors shadow-lg disabled:opacity-50 active:scale-[0.99]"
                   >
-                    {isSubmitting ? "Submitting Application to Server..." : "Submit Exhibitor Application (Deadline 11th Sept 2026)"}
+                    {isSubmitting ? "Submitting Application to Server..." : "Submit Exhibitor Application (Deadline 18th Sept 2026)"}
                   </button>
                   <p className="mt-2 text-center text-[11px] text-slate-400">
                     By submitting, you agree to the AIDF 2026 Exhibition Guidelines & Privacy Policy.

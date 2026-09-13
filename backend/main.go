@@ -27,8 +27,8 @@ func NewServer(dbPath string) *Server {
 	if err != nil {
 		loc = time.UTC
 	}
-	// Exhibitors deadline: 11th September 2026 23:59:59 WAT
-	deadline := time.Date(2026, time.September, 11, 23, 59, 59, 0, loc)
+	// Exhibitors deadline: 18th September 2026 23:59:59 WAT
+	deadline := time.Date(2026, time.September, 18, 23, 59, 59, 0, loc)
 
 	adminUser := os.Getenv("ADMIN_USER")
 	if adminUser == "" {
@@ -188,7 +188,7 @@ func (s *Server) handleRegisterExhibitor(w http.ResponseWriter, r *http.Request)
 		w.WriteHeader(http.StatusForbidden)
 		json.NewEncoder(w).Encode(map[string]interface{}{
 			"success": false,
-			"error":   "Exhibitor registration deadline closed on 11th September 2026",
+			"error":   "Exhibitor registration deadline closed on 18th September 2026",
 		})
 		return
 	}

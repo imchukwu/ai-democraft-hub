@@ -464,7 +464,10 @@ export const speakers: Speaker[] = [
     bio: "Mr. Erastus Ethekon is the Chairperson of the Independent Electoral and Boundaries Commission (IEBC), Kenya. He is a prominent electoral leader advocating for electoral technology governance, institutional independence, and regional cooperation across African election management bodies.",
     expertise: ["Electoral Governance", "Election Administration", "Regional Cooperation"],
     imageUrl: "/images/speakers/erastus.jpeg",
-    links: [{ label: "LinkedIn", url: "https://linkedin.com" }],
+    links: [
+      { label: "LinkedIn", url: "https://www.linkedin.com/in/erastus-e-l-ethekon-90193738/" },
+      { label: "X (Twitter)", url: "https://x.com/IEBCKenya" },
+    ],
   },
   {
     id: "speaker-joash",
@@ -476,7 +479,7 @@ export const speakers: Speaker[] = [
     bio: "Prof. Joash Amupitan SAN is the Chairman of the Independent National Electoral Commission (INEC). He is a Senior Advocate of Nigeria and leading legal scholar specializing in constitutional law, electoral administration, and safeguarding democratic processes.",
     expertise: ["Electoral Administration", "Constitutional Law", "Electoral Safeguards"],
     imageUrl: "/images/speakers/joash.jpeg",
-    links: [{ label: "LinkedIn", url: "https://linkedin.com" }],
+    links: [{ label: "X (Twitter)", url: "https://x.com/inecnigeria" }],
   },
   {
     id: "speaker-bosun",
@@ -489,8 +492,8 @@ export const speakers: Speaker[] = [
     expertise: ["Digital Economy", "AI Policy", "Tech Innovation", "Governance"],
     imageUrl: "/images/speakers/bosun.jpeg",
     links: [
-      { label: "LinkedIn", url: "https://linkedin.com" },
-      { label: "X (Twitter)", url: "https://x.com" },
+      { label: "LinkedIn", url: "https://www.linkedin.com/in/bosuntijani" },
+      { label: "X (Twitter)", url: "https://x.com/bosuntijani" },
     ],
   },
   {
@@ -503,7 +506,7 @@ export const speakers: Speaker[] = [
     bio: "Hon. Justice Monica Dongban-Mensem is the President of the Court of Appeal of Nigeria. She is a distinguished jurist guiding judicial oversight, election petition tribunals, and legal frameworks for evaluating technology evidence in Nigeria.",
     expertise: ["Electoral Justice", "Judicial Oversight", "Legal Evidence"],
     imageUrl: "/images/speakers/monica.jpeg",
-    links: [{ label: "LinkedIn", url: "https://linkedin.com" }],
+    links: [{ label: "LinkedIn", url: "https://www.linkedin.com/in/monica-dongban-mensem-436a2478/" }],
   },
   {
     id: "speaker-ibeanu",
@@ -515,7 +518,7 @@ export const speakers: Speaker[] = [
     bio: "Prof. Okechukwu Ibeanu is a distinguished professor of political science and former National Commissioner of the Independent National Electoral Commission (INEC). He has extensively researched electoral processes, technology governance, and institutional reforms across Africa.",
     expertise: ["Electoral Administration", "Political Science", "Electoral Integrity"],
     imageUrl: "/images/speakers/okechukwu.jpg",
-    links: [{ label: "LinkedIn", url: "https://linkedin.com" }],
+    links: [{ label: "X (Twitter)", url: "https://x.com/okeyibeanu" }],
   },
   {
     id: "speaker-lisa",
@@ -527,7 +530,10 @@ export const speakers: Speaker[] = [
     bio: "Dr. Lisa Poggiali is Chief AI Advisor at the International Foundation for Electoral Systems (IFES), advising election management bodies globally on navigating AI risks, synthetic media threats, and ethical technology adoption in democratic processes.",
     expertise: ["AI Policy", "Electoral Tech Safeguards", "Synthetic Media Risk"],
     imageUrl: "/images/speakers/lisa.jpeg",
-    links: [{ label: "LinkedIn", url: "https://linkedin.com" }],
+    links: [
+      { label: "LinkedIn", url: "https://www.linkedin.com/in/lpoggiali/" },
+      { label: "X (Twitter)", url: "https://x.com/IFES1987" },
+    ],
   },
   {
     id: "speaker-samson",
@@ -540,8 +546,8 @@ export const speakers: Speaker[] = [
     expertise: ["Electoral Reform", "Democracy Advocacy", "AI Governance"],
     imageUrl: "/images/speakers/samson.jpg",
     links: [
-      { label: "LinkedIn", url: "https://linkedin.com" },
-      { label: "X (Twitter)", url: "https://x.com" },
+      { label: "LinkedIn", url: "https://www.linkedin.com/in/samsonitodo/" },
+      { label: "X (Twitter)", url: "https://x.com/DSamsonItodo" },
     ],
   },
 ];

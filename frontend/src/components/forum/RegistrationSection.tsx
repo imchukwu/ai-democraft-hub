@@ -64,12 +64,12 @@ export function RegistrationSection() {
                   <span className="eyebrow text-amber-400">Exhibitor Registration</span>
                   <span className="inline-flex items-center gap-1 rounded bg-amber-400/20 px-2 py-0.5 text-[10px] font-extrabold text-amber-300 border border-amber-400/30">
                     <Clock className="h-3 w-3" />
-                    Deadline: 11th Sept 2026
+                    Deadline: 18th Sept 2026
                   </span>
                 </div>
                 <h3 className="mt-1 text-xl font-bold text-white">Are you a Technology, GovTech, or Civic Tech Exhibitor?</h3>
                 <p className="mt-1 text-xs text-slate-300 max-w-2xl leading-relaxed">
-                  Exhibitor booth applications require detailed technical specs, solution abstracts, and booth requirements. Please use our dedicated Exhibitor Application Portal before the 11th September deadline.
+                  Exhibitor booth applications require detailed technical specs, solution abstracts, and booth requirements. Please use our dedicated Exhibitor Application Portal before the 18th September deadline.
                 </p>
               </div>
             </div>

@@ -19,7 +19,7 @@ function ExhibitorRegisterPage() {
             Apply for dedicated exhibition space, technology demonstration slots, and directory listing at Congress Hall, Transcorp Hilton, Abuja (7th – 9th October 2026).
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold text-amber-300">
-            <span>Deadline: 11th September 2026 (23:59 WAT)</span>
+            <span>Deadline: 18th September 2026 (23:59 WAT)</span>
           </div>
         </div>
       </div>
