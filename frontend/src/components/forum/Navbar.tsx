@@ -61,10 +61,10 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            to={"/register" as any}
-            className="ml-4 inline-flex items-center rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-all hover:bg-primary/90 shadow-sm"
+            to={"/exhibitor" as any}
+            className="ml-4 inline-flex items-center rounded-lg bg-amber-400 px-5 py-2.5 text-sm font-bold text-slate-950 transition-all hover:bg-amber-300 shadow-sm"
           >
-            Register
+            Exhibitor Portal
           </Link>
         </nav>
 
@@ -94,11 +94,11 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              to={"/register" as any}
+              to={"/exhibitor" as any}
               onClick={() => setOpen(false)}
-              className="mt-6 inline-flex items-center justify-center rounded-xl bg-primary px-6 py-4 text-base font-bold text-primary-foreground shadow-md transition-all active:scale-[0.98]"
+              className="mt-6 inline-flex items-center justify-center rounded-xl bg-amber-400 px-6 py-4 text-base font-bold text-slate-950 shadow-md transition-all active:scale-[0.98]"
             >
-              Register for the Forum
+              Apply as Exhibitor
             </Link>
             <div className="mt-8 rounded-xl border border-border bg-card p-4 text-xs font-medium text-muted-foreground">
               <p className="font-bold text-foreground">{forumMeta.fullName}</p>

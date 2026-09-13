@@ -49,8 +49,8 @@ function AboutPage() {
               {forumMeta.themeSubtitle}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Cta to="/register" tone="accent">
-                Register as a Delegate
+              <Cta to="/exhibitor" tone="accent">
+                Apply as Exhibitor
               </Cta>
               <Cta to="/program" tone="outline" arrow={false}>
                 Explore 2-Day Program
@@ -237,8 +237,8 @@ function AboutPage() {
             Yiaga Africa invites tech companies, development partners, and foundations to join as sponsors, exhibitors, and sandbox grant supporters.
           </p>
           <div className="mt-6 flex justify-center gap-4">
-            <Cta to="/register" tone="primary">
-              Register as a Delegate
+            <Cta to="/exhibitor" tone="primary">
+              Apply as Exhibitor
             </Cta>
             <Link
               to="/sandbox"

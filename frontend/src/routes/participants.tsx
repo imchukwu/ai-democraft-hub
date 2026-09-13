@@ -74,8 +74,8 @@ function ParticipantsPage() {
               AIDF 2026 is deliberately multi-stakeholder, convening key actors whose collaboration is essential to protecting Nigeria's 2027 general elections in the AI era.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Cta to="/register" tone="accent">
-                Register as a Delegate
+              <Cta to="/exhibitor" tone="accent">
+                Apply as Exhibitor
               </Cta>
               <Cta to="/program" tone="outline" arrow={false}>
                 View 2-Day Program
@@ -210,8 +210,8 @@ function ParticipantsPage() {
             Be part of the national convening establishing safeguards for Nigeria's 2027 general elections.
           </p>
           <div className="mt-6 flex justify-center gap-4">
-            <Cta to="/register" tone="accent">
-              Complete Delegate Registration
+            <Cta to="/exhibitor" tone="accent">
+              Apply as Exhibitor
             </Cta>
           </div>
         </div>

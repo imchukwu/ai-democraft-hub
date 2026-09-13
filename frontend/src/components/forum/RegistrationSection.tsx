@@ -1,55 +1,18 @@
-import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Cta } from "./cta";
 import { Reveal, SectionHeader } from "./primitives";
-import { forumMeta, participationCategories } from "@/data/forum";
-import { API_BASE_URL } from "@/lib/api";
-import { AlertCircle, ArrowRight, Calendar, CheckCircle2, Clock, Store } from "lucide-react";
+import { forumMeta } from "@/data/forum";
+import { ArrowRight, CheckCircle2, Clock, Lock, Store } from "lucide-react";
 
 export function RegistrationSection() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    organization: "",
-    category: "Election Management Bodies (INEC & ECONEC)",
-    country: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setErrorMsg(null);
-
-    try {
-      const res = await fetch(`${API_BASE_URL}/api/register/participant`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Failed to submit participant registration");
-      }
-
-      setSubmitted(true);
-    } catch (err: any) {
-      setErrorMsg(err.message || "An error occurred while registering. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section className="border-b border-border bg-parallax-light py-20 text-foreground md:py-28" id="register-section">
       <div className="container-forum">
         <SectionHeader
           eyebrow="Attend the Forum"
-          title="Join the AI & Democracy Forum"
+          title="AI & Democracy Forum Accreditation"
           tone="light"
-          lede="Be part of shaping democratic futures in the AI era. Join electoral commissioners, civil society leaders, and tech pioneers from 7th – 9th October 2026 at Congress Hall, Transcorp Hilton, Abuja, Nigeria."
+          lede="Be part of shaping democratic futures in the AI era. Bringing together electoral commissioners, civil society leaders, and tech pioneers from 7th – 9th October 2026 at Congress Hall, Transcorp Hilton, Abuja, Nigeria."
         />
 
         {/* Prominent Exhibitor Portal Card */}
@@ -80,16 +43,16 @@ export function RegistrationSection() {
           </div>
         </Reveal>
 
-        {/* Distinct Participant Registration Panel */}
+        {/* Invitation Only Delegate Accreditation Panel */}
         <Reveal className="mt-10">
-          <div className="relative overflow-hidden rounded-2xl border border-cyan-500/30 bg-slate-950 p-6 shadow-2xl md:p-12">
+          <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 p-6 shadow-2xl md:p-12">
             <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
               
               {/* Left Column: Info & Details */}
               <div className="lg:col-span-5">
-                <span className="eyebrow text-cyan-400">Participant Delegate Accreditation</span>
+                <span className="eyebrow text-amber-400">Participant Delegate Accreditation</span>
                 <h3 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                  Reserve Your Delegate Pass
+                  Delegate Accreditation
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-slate-300">
                   Delegate passes grant full access to plenary keynotes, thematic panel discussions, sandbox live demonstrations, policy lab drafting sessions, exhibition floor, and networking events ({forumMeta.dateShort}).
@@ -117,110 +80,47 @@ export function RegistrationSection() {
                 </div>
               </div>
 
-              {/* Right Column: Participant Registration Form */}
+              {/* Right Column: Invitation-Only Notice */}
               <div className="lg:col-span-7">
-                <div className="rounded-xl border border-slate-800 bg-slate-900/90 p-6 md:p-8">
-                  {errorMsg && (
-                    <div className="mb-6 flex items-center gap-3 rounded-lg border border-red-500/40 bg-red-500/10 p-3.5 text-xs text-red-200">
-                      <AlertCircle className="h-5 w-5 text-red-400 shrink-0" />
-                      <span>{errorMsg}</span>
+                <div className="rounded-xl border border-amber-500/40 bg-slate-900/90 p-6 md:p-8">
+                  <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/40">
+                      <Lock className="h-5 w-5" />
                     </div>
-                  )}
-
-                  {submitted ? (
-                    <div className="text-center py-8">
-                      <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-cyan-400/20 text-cyan-300 border border-cyan-400/40">
-                        <CheckCircle2 className="h-8 w-8" />
-                      </div>
-                      <h4 className="mt-4 text-xl font-bold text-white">Participant Registration Confirmed!</h4>
-                      <p className="mt-2 text-xs text-slate-300 max-w-md mx-auto">
-                        Thank you, <strong className="text-white">{formData.fullName}</strong>. Your delegate registration has been registered by the AIDF 2026 server. A confirmation email and badge instructions have been sent to <strong className="text-cyan-300">{formData.email}</strong>.
-                      </p>
-                      <button
-                        onClick={() => { setSubmitted(false); setFormData({ fullName: "", email: "", organization: "", category: "Election Management Bodies (INEC & ECONEC)", country: "" }); }}
-                        className="mt-6 inline-flex items-center text-xs font-semibold text-cyan-400 hover:text-cyan-300 underline"
-                      >
-                        Submit another participant registration
-                      </button>
+                    <div>
+                      <h4 className="text-lg font-bold text-white">Delegate Pass Status</h4>
+                      <span className="text-xs font-semibold text-amber-400">Strictly By Official Invitation Only</span>
                     </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                        <h4 className="text-base font-bold text-white">Participant Delegate Pass</h4>
-                        <span className="text-[11px] font-semibold text-cyan-400">Open Registration</span>
-                      </div>
+                  </div>
 
+                  <div className="mt-6 space-y-4 text-sm text-slate-300 leading-relaxed">
+                    <p>
+                      Public delegate registration for the <strong className="text-white">AI & Democracy Forum (AIDF 2026)</strong> is currently closed. Attendance is strictly reserved for accredited government officials, election management body delegates, civil society representatives, and nominated special guests.
+                    </p>
+                    <p className="text-xs text-slate-400">
+                      If you have received an official invitation letter or nomination link, please follow the personalized accreditation instructions provided in your invitation pack.
+                    </p>
+                  </div>
+
+                  <div className="mt-8 rounded-lg border border-slate-800 bg-slate-950 p-4">
+                    <div className="flex items-start gap-3">
+                      <Store className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300">Full Name *</label>
-                        <input
-                          type="text"
-                          required
-                          value={formData.fullName}
-                          onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                          placeholder="Dr. Jane Doe"
-                          className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
-                        />
-                      </div>
-
-                      <div className="grid gap-4 sm:grid-cols-2">
-                        <div>
-                          <label className="block text-xs font-semibold text-slate-300">Work Email *</label>
-                          <input
-                            type="email"
-                            required
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            placeholder="jane@organization.org"
-                            className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-semibold text-slate-300">Country *</label>
-                          <input
-                            type="text"
-                            required
-                            value={formData.country}
-                            onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                            placeholder="Nigeria, South Africa, Kenya, etc."
-                            className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
-                          />
+                        <h5 className="text-xs font-bold text-white">Exhibitor Booth Applications</h5>
+                        <p className="mt-1 text-[11px] text-slate-400">
+                          Technology platforms, GovTech labs, and civic innovators can apply for dedicated exhibition booth space until <strong>18th September 2026</strong>.
+                        </p>
+                        <div className="mt-3">
+                          <Link
+                            to="/exhibitor"
+                            className="inline-flex items-center gap-1.5 rounded-lg bg-amber-400 px-4 py-2 text-xs font-bold text-slate-950 hover:bg-amber-300 transition-colors"
+                          >
+                            Apply for Exhibitor Booth <ArrowRight className="h-3.5 w-3.5" />
+                          </Link>
                         </div>
                       </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-300">Organization / Institution *</label>
-                        <input
-                          type="text"
-                          required
-                          value={formData.organization}
-                          onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                          placeholder="INEC, Civil Society Org, University, Tech Platform"
-                          className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-300">Participation Category *</label>
-                        <select
-                          value={formData.category}
-                          onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                          className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3.5 py-2.5 text-base text-white focus:border-cyan-400 focus:outline-none"
-                        >
-                          {participationCategories.map((c, i) => (
-                            <option key={i} value={c.title}>{c.title}</option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="mt-2 w-full rounded-lg bg-cyan-400 py-3.5 text-base font-bold text-slate-950 hover:bg-cyan-300 transition-colors disabled:opacity-50 shadow-md active:scale-[0.99]"
-                      >
-                        {isSubmitting ? "Submitting Registration..." : "Submit Delegate Registration"}
-                      </button>
-                    </form>
-                  )}
+                    </div>
+                  </div>
                 </div>
               </div>
 

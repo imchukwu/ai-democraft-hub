@@ -36,8 +36,8 @@ export function Hero() {
             </div>
 
             <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3">
-              <Cta to="/register" tone="primary" className="w-full sm:w-auto justify-center">
-                Register for the Forum
+              <Cta to="/exhibitor" tone="accent" className="w-full sm:w-auto justify-center">
+                Apply as Exhibitor
               </Cta>
               <Cta to="/program" tone="outline" arrow={false} className="w-full sm:w-auto justify-center">
                 View Program
