@@ -55,7 +55,7 @@ export function RegistrationSection() {
                   Delegate Accreditation
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-slate-300">
-                  Delegate passes grant full access to plenary keynotes, thematic panel discussions, sandbox live demonstrations, policy lab drafting sessions, exhibition floor, and networking events ({forumMeta.dateShort}).
+                  Delegate passes grant full access to plenary keynotes, thematic panel discussions, interactive technology demonstrations, policy lab drafting sessions, exhibition floor, and networking events ({forumMeta.dateShort}).
                 </p>
 
                 <div className="mt-6 space-y-2.5 text-xs text-slate-300 font-medium">

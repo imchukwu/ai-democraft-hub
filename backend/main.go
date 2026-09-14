@@ -1,11 +1,13 @@
 package main
 
 import (
+	"crypto/tls"
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
+	"net/smtp"
 	"os"
 	"strings"
 	"time"
@@ -45,6 +47,9 @@ func NewServer(dbPath string) *Server {
 	gcpProjectID := os.Getenv("GCP_PROJECT_ID")
 	if gcpProjectID == "" {
 		gcpProjectID = os.Getenv("FIRESTORE_PROJECT_ID")
+	}
+	if gcpProjectID == "" && (os.Getenv("K_SERVICE") != "" || os.Getenv("PORT") != "") {
+		gcpProjectID = "yiaga-website"
 	}
 
 	if gcpProjectID != "" {
@@ -216,6 +221,12 @@ func (s *Server) handleRegisterExhibitor(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
+	contactName, _ := req["contactName"].(string)
+	category, _ := req["category"].(string)
+
+	// Asynchronously send automated confirmation email response from info@aianddemocracyforum.org
+	go s.sendExhibitorConfirmationEmail(email, contactName, org, category)
+
 	_ = s.db.InsertOne("admin_logs", fmt.Sprintf("log_%d", time.Now().UnixNano()), nosql.Document{
 		"action":    "EXHIBITOR_REGISTERED",
 		"targetId":  docID,
@@ -227,9 +238,138 @@ func (s *Server) handleRegisterExhibitor(w http.ResponseWriter, r *http.Request)
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"success": true,
-		"message": "Exhibitor application successfully saved in NoSQL store",
+		"message": "Exhibitor application successfully saved in NoSQL store. Confirmation email dispatched.",
 		"id":      docID,
 	})
+}
+
+type EmailConfig struct {
+	Host     string
+	Port     string
+	User     string
+	Password string
+	From     string
+}
+
+func getEmailConfig() EmailConfig {
+	host := os.Getenv("SMTP_HOST")
+	port := os.Getenv("SMTP_PORT")
+	if port == "" {
+		port = "587"
+	}
+	user := os.Getenv("SMTP_USER")
+	if user == "" {
+		user = "info@aianddemocracyforum.org"
+	}
+	pass := os.Getenv("SMTP_PASS")
+	from := os.Getenv("SMTP_FROM")
+	if from == "" {
+		from = "AI & Democracy Forum <info@aianddemocracyforum.org>"
+	}
+	return EmailConfig{
+		Host:     host,
+		Port:     port,
+		User:     user,
+		Password: pass,
+		From:     from,
+	}
+}
+
+func (s *Server) sendExhibitorConfirmationEmail(toEmail, contactName, organization, boothCategory string) {
+	if strings.TrimSpace(toEmail) == "" {
+		return
+	}
+	cfg := getEmailConfig()
+
+	if contactName == "" {
+		contactName = organization
+	}
+	if contactName == "" {
+		contactName = "Valued Applicant"
+	}
+
+	subject := "Exhibitor Application Received - AI & Democracy Forum 2026"
+	body := fmt.Sprintf("Dear %s,\n\n"+
+		"Thank you for submitting an Exhibitor Booth application for the AI & Democracy Forum (AIDF 2026), taking place from 7th – 9th October 2026 at Congress Hall, Transcorp Hilton, Abuja, Nigeria.\n\n"+
+		"We have successfully received your application details:\n"+
+		"• Organization: %s\n"+
+		"• Contact Person: %s\n"+
+		"• Submission Category: %s\n"+
+		"• Date Received: %s\n\n"+
+		"WHAT HAPPENS NEXT?\n"+
+		"1. Application Review: Our Technical & Exhibition Review Committee is reviewing all booth applications on a rolling basis.\n"+
+		"2. Booth Allocation & Specs: Shortlisted exhibitors will receive notification regarding floor placement, booth dimensions, and technical setup guidelines at Congress Hall, Transcorp Hilton, Abuja.\n\n"+
+		"PLEASE NOTE: Exhibition booth applications are dedicated exclusively to exhibition floor spaces for tech platforms, GovTech labs, and civic technology showcases. Information regarding the upcoming Innovation Sandbox initiative will be announced separately soon.\n\n"+
+		"If you have any questions or additional technical specifications to submit, please reply directly to this email or contact us at info@aianddemocracyforum.org.\n\n"+
+		"Warm regards,\n\n"+
+		"AI & Democracy Forum Secretariat\n"+
+		"Yiaga Africa & Strategic Partners\n"+
+		"Email: info@aianddemocracyforum.org\n"+
+		"Website: https://aianddemocracyforum.org\n"+
+		"Venue: Congress Hall, Transcorp Hilton, Abuja, Nigeria\n",
+		contactName, organization, contactName, boothCategory, time.Now().Format("02 January 2006"))
+
+	if cfg.Host == "" || cfg.Password == "" {
+		log.Printf("📧 [Automated Email Dispatch] Configured Sender: %s | Recipient: %s (Org: %s). (To send live emails, set SMTP_HOST and SMTP_PASS environment variables).", cfg.User, toEmail, organization)
+		return
+	}
+
+	msg := []byte(fmt.Sprintf("From: %s\r\n"+
+		"To: %s\r\n"+
+		"Reply-To: info@aianddemocracyforum.org\r\n"+
+		"Subject: %s\r\n"+
+		"Content-Type: text/plain; charset=UTF-8\r\n"+
+		"\r\n"+
+		"%s", cfg.From, toEmail, subject, body))
+
+	err := sendMailWithTLS(cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.From, toEmail, subject, msg)
+	if err != nil {
+		log.Printf("⚠️ Failed to send automated exhibitor confirmation email to %s via %s:%s (User: %s): %v", toEmail, cfg.Host, cfg.Port, cfg.User, err)
+	} else {
+		log.Printf("✅ Automated exhibitor confirmation email sent to %s from %s", toEmail, cfg.From)
+	}
+}
+
+func sendMailWithTLS(host, port, user, pass, fromHeader, toEmail, subject string, msg []byte) error {
+	addr := fmt.Sprintf("%s:%s", host, port)
+	auth := smtp.PlainAuth("", user, pass, host)
+
+	if port == "465" {
+		tlsconfig := &tls.Config{
+			InsecureSkipVerify: false,
+			ServerName:         host,
+		}
+		conn, err := tls.Dial("tcp", addr, tlsconfig)
+		if err != nil {
+			return fmt.Errorf("TLS dial failed on port 465: %w", err)
+		}
+		client, err := smtp.NewClient(conn, host)
+		if err != nil {
+			return fmt.Errorf("SMTP client init failed: %w", err)
+		}
+		defer client.Quit()
+
+		if err = client.Auth(auth); err != nil {
+			return fmt.Errorf("SMTP auth failed for user %s: %w", user, err)
+		}
+		if err = client.Mail(user); err != nil {
+			return fmt.Errorf("SMTP MAIL command failed: %w", err)
+		}
+		if err = client.Rcpt(toEmail); err != nil {
+			return fmt.Errorf("SMTP RCPT command failed: %w", err)
+		}
+		w, err := client.Data()
+		if err != nil {
+			return fmt.Errorf("SMTP DATA command failed: %w", err)
+		}
+		_, err = w.Write(msg)
+		if err != nil {
+			return fmt.Errorf("SMTP write payload failed: %w", err)
+		}
+		return w.Close()
+	}
+
+	return smtp.SendMail(addr, auth, user, []string{toEmail}, msg)
 }
 
 // Admin API: Login

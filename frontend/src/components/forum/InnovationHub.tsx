@@ -81,7 +81,7 @@ export function InnovationHub() {
             to="/exhibitor"
             className="inline-flex items-center gap-2 text-xs font-bold text-[#FEA105] hover:underline"
           >
-            <span>Apply for Booth Space or Pitch Slot (Deadline 18 Sept)</span>
+            <span>Apply for Pitch Slot (Deadline 18 Sept)</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -165,7 +165,7 @@ export function InnovationHub() {
             to="/sandbox"
             className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg transition-all hover:bg-cyan-300 hover:shadow-xl"
           >
-            <span>View Exhibition & Pitch Details</span>
+            <span>View Exhibition Details</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

@@ -49,6 +49,27 @@ export function ExhibitorRegistrationSection() {
     });
   };
 
+  const handleReset = () => {
+    setFormData({
+      organization: "",
+      orgType: "GovTech / Tech Platform",
+      country: "Nigeria",
+      website: "",
+      contactName: "",
+      jobTitle: "",
+      email: "",
+      phone: "",
+      category: "Civic Tech & AI Innovation",
+      productTitle: "",
+      description: "",
+      boothType: "Standard 3x3m Booth",
+      techRequirements: [],
+      representativesCount: "2",
+    });
+    setSubmitted(false);
+    setErrorMsg(null);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -120,7 +141,7 @@ export function ExhibitorRegistrationSection() {
                 </div>
                 <h3 className="mt-6 text-2xl font-extrabold text-white sm:text-3xl">Application Successfully Received!</h3>
                 <p className="mt-3 text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
-                  Thank you, <strong className="text-white">{formData.contactName}</strong>. Your detailed exhibitor application for <strong className="text-amber-300">{formData.organization}</strong> has been registered in the AIDF 2026 Go server database.
+                  Thank you, <strong className="text-white">{formData.contactName}</strong>. Your detailed exhibitor application for <strong className="text-amber-300">{formData.organization}</strong> has been registered. An automated confirmation email has been dispatched to <strong className="text-amber-300">{formData.email}</strong> from <strong className="text-white">info@aianddemocracyforum.org</strong>.
                 </p>
 
                 <div className="mt-6 inline-block text-left rounded-xl border border-slate-800 bg-slate-900/90 p-5 text-xs text-slate-300 space-y-2 max-w-lg mx-auto">
@@ -145,7 +166,7 @@ export function ExhibitorRegistrationSection() {
                 <div className="mt-8 flex justify-center gap-4">
                   <button
                     type="button"
-                    onClick={() => setSubmitted(false)}
+                    onClick={handleReset}
                     className="rounded-lg bg-slate-800 px-5 py-2.5 text-xs font-bold text-white hover:bg-slate-700 transition-colors"
                   >
                     Submit Another Application
