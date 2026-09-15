@@ -162,6 +162,14 @@ export function InnovationHub() {
           </Link>
 
           <Link
+            to="/sandbox-apply"
+            className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#15B708] px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg hover:bg-[#10b981] hover:shadow-md"
+          >
+            <span>Apply for Sandbox (Deadline 24–25 Sept)</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+
+          <Link
             to="/sandbox"
             className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg transition-all hover:bg-cyan-300 hover:shadow-xl"
           >

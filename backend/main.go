@@ -243,6 +243,115 @@ func (s *Server) handleRegisterExhibitor(w http.ResponseWriter, r *http.Request)
 	})
 }
 
+// Public Endpoint: Register Sandbox Applicant (NoSQL Document Insert)
+func (s *Server) handleRegisterSandbox(w http.ResponseWriter, r *http.Request) {
+	if enableCORS(w, r) {
+		return
+	}
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	var req map[string]interface{}
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		http.Error(w, "Invalid JSON payload", http.StatusBadRequest)
+		return
+	}
+
+	teamName, _ := req["teamName"].(string)
+	email, _ := req["email"].(string)
+
+	if strings.TrimSpace(teamName) == "" || strings.TrimSpace(email) == "" {
+		http.Error(w, "Team/Project name and contact email are required", http.StatusBadRequest)
+		return
+	}
+
+	docID := fmt.Sprintf("sbx_%d", time.Now().UnixNano())
+	req["submittedAt"] = time.Now().Format(time.RFC3339)
+
+	if err := s.db.InsertOne("sandbox_applicants", docID, req); err != nil {
+		log.Printf("Error inserting NoSQL sandbox document: %v", err)
+		http.Error(w, "Failed to save application", http.StatusInternalServerError)
+		return
+	}
+
+	contactName, _ := req["contactName"].(string)
+	focusArea, _ := req["focusArea"].(string)
+
+	go s.sendSandboxConfirmationEmail(email, contactName, teamName, focusArea)
+
+	_ = s.db.InsertOne("admin_logs", fmt.Sprintf("log_%d", time.Now().UnixNano()), nosql.Document{
+		"action":    "SANDBOX_REGISTERED",
+		"targetId":  docID,
+		"user":      email,
+		"timestamp": time.Now().Format(time.RFC3339),
+	})
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(map[string]interface{}{
+		"success": true,
+		"message": "Sandbox application successfully saved. Confirmation email dispatched.",
+		"id":      docID,
+	})
+}
+
+func (s *Server) sendSandboxConfirmationEmail(toEmail, contactName, teamName, focusArea string) {
+	if strings.TrimSpace(toEmail) == "" {
+		return
+	}
+	cfg := getEmailConfig()
+
+	if contactName == "" {
+		contactName = teamName
+	}
+	if contactName == "" {
+		contactName = "Valued Applicant"
+	}
+
+	subject := "Sandbox Application Received - AI & Democracy Forum 2026"
+	body := fmt.Sprintf("Dear %s,\n\n"+
+		"Thank you for applying to the AI & Democracy Forum Sandbox — the innovation showcase of AIDF 2026, taking place 14–16 October 2026 at Congress Hall, Transcorp Hilton, Abuja, Nigeria.\n\n"+
+		"We have successfully received your application:\n"+
+		"• Project / Team Name: %s\n"+
+		"• Focus Area: %s\n"+
+		"• Contact Email: %s\n"+
+		"• Date Received: %s\n\n"+
+		"WHAT HAPPENS NEXT?\n"+
+		"1. Eligibility Screening: Every submission is reviewed for focus-area fit, completeness, and a genuine working proof of concept with an end-to-end demo. Submissions that don't meet these pass/fail criteria are not scored further.\n"+
+		"2. Quality Scoring: Eligible submissions are scored by reviewers against a shared rubric. Top submissions per focus area are shortlisted for the jury.\n"+
+		"3. Shortlist Notification: Shortlisted teams will be notified by 1 October 2026 and given full details on jury logistics.\n"+
+		"4. Live Pitch Finale: Shortlisted teams pitch live at the Forum on 14–16 October 2026 in front of a jury of policy, technology, and civil-society experts.\n\n"+
+		"KEY DATES:\n"+
+		"• Application Deadline: 24–25 September 2026\n"+
+		"• Shortlist Announced: 1 October 2026\n"+
+		"• Pitch Finale (Live at the Forum): 14–16 October 2026\n"+
+		"• Winners Announced: 14–16 October 2026\n\n"+
+		"If you have any questions, please reply to this email or contact us at info@aianddemocracyforum.org.\n\n"+
+		"Warm regards,\n\n"+
+		"The Sandbox Team\n"+
+		"AI & Democracy Forum Secretariat\n"+
+		"Yiaga Africa & Strategic Partners\n"+
+		"Email: info@aianddemocracyforum.org\n"+
+		"Website: https://aianddemocracyforum.org\n",
+		contactName, teamName, focusArea, toEmail, time.Now().Format("02 January 2006"))
+
+	if cfg.Host == "" || cfg.Password == "" {
+		log.Printf("📧 [Sandbox Email] Sender: %s | Recipient: %s (Team: %s).", cfg.User, toEmail, teamName)
+		return
+	}
+
+	msg := []byte(fmt.Sprintf("From: %s\r\nTo: %s\r\nReply-To: info@aianddemocracyforum.org\r\nSubject: %s\r\nContent-Type: text/plain; charset=UTF-8\r\n\r\n%s",
+		cfg.From, toEmail, subject, body))
+
+	if err := sendMailWithTLS(cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.From, toEmail, subject, msg); err != nil {
+		log.Printf("⚠️ Failed to send sandbox confirmation email to %s: %v", toEmail, err)
+	} else {
+		log.Printf("✅ Sandbox confirmation email sent to %s", toEmail)
+	}
+}
+
 type EmailConfig struct {
 	Host     string
 	Port     string
@@ -594,6 +703,7 @@ func main() {
 	http.HandleFunc("/api/health", server.handleHealth)
 	http.HandleFunc("/api/register/participant", server.handleRegisterParticipant)
 	http.HandleFunc("/api/register/exhibitor", server.handleRegisterExhibitor)
+	http.HandleFunc("/api/register/sandbox", server.handleRegisterSandbox)
 	http.HandleFunc("/api/registrations", server.handleAdminRegistrations)
 
 	// Admin Dedicated Endpoints

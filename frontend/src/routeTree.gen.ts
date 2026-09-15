@@ -21,6 +21,7 @@ import { Route as ProgramRouteImport } from './routes/program'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as SandboxRouteImport } from './routes/sandbox'
+import { Route as SandboxApplyRouteImport } from './routes/sandbox-apply'
 import { Route as ShowcasesRouteImport } from './routes/showcases'
 import { Route as SpeakersRouteImport } from './routes/speakers'
 
@@ -84,6 +85,11 @@ const SandboxRoute = SandboxRouteImport.update({
   path: '/sandbox',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SandboxApplyRoute = SandboxApplyRouteImport.update({
+  id: '/sandbox-apply',
+  path: '/sandbox-apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShowcasesRoute = ShowcasesRouteImport.update({
   id: '/showcases',
   path: '/showcases',
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/register': typeof RegisterRoute
   '/resources': typeof ResourcesRoute
   '/sandbox': typeof SandboxRoute
+  '/sandbox-apply': typeof SandboxApplyRoute
   '/showcases': typeof ShowcasesRoute
   '/speakers': typeof SpeakersRoute
 }
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/resources': typeof ResourcesRoute
   '/sandbox': typeof SandboxRoute
+  '/sandbox-apply': typeof SandboxApplyRoute
   '/showcases': typeof ShowcasesRoute
   '/speakers': typeof SpeakersRoute
 }
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/register': typeof RegisterRoute
   '/resources': typeof ResourcesRoute
   '/sandbox': typeof SandboxRoute
+  '/sandbox-apply': typeof SandboxApplyRoute
   '/showcases': typeof ShowcasesRoute
   '/speakers': typeof SpeakersRoute
 }
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/resources'
     | '/sandbox'
+    | '/sandbox-apply'
     | '/showcases'
     | '/speakers'
   fileRoutesByTo: FileRoutesByTo
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/resources'
     | '/sandbox'
+    | '/sandbox-apply'
     | '/showcases'
     | '/speakers'
   id:
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/resources'
     | '/sandbox'
+    | '/sandbox-apply'
     | '/showcases'
     | '/speakers'
   fileRoutesById: FileRoutesById
@@ -208,6 +220,7 @@ export interface RootRouteChildren {
   RegisterRoute: typeof RegisterRoute
   ResourcesRoute: typeof ResourcesRoute
   SandboxRoute: typeof SandboxRoute
+  SandboxApplyRoute: typeof SandboxApplyRoute
   ShowcasesRoute: typeof ShowcasesRoute
   SpeakersRoute: typeof SpeakersRoute
 }
@@ -298,6 +311,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SandboxRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sandbox-apply': {
+      id: '/sandbox-apply'
+      path: '/sandbox-apply'
+      fullPath: '/sandbox-apply'
+      preLoaderRoute: typeof SandboxApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/showcases': {
       id: '/showcases'
       path: '/showcases'
@@ -328,6 +348,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterRoute: RegisterRoute,
   ResourcesRoute: ResourcesRoute,
   SandboxRoute: SandboxRoute,
+  SandboxApplyRoute: SandboxApplyRoute,
   ShowcasesRoute: ShowcasesRoute,
   SpeakersRoute: SpeakersRoute,
 }
