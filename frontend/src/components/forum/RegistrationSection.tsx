@@ -12,7 +12,7 @@ export function RegistrationSection() {
           eyebrow="Attend the Forum"
           title="AI & Democracy Forum Accreditation"
           tone="light"
-          lede="Be part of shaping democratic futures in the AI era. Bringing together electoral commissioners, civil society leaders, and tech pioneers from 7th – 9th October 2026 at Congress Hall, Transcorp Hilton, Abuja, Nigeria."
+          lede="Be part of shaping democratic futures in the AI era. Bringing together electoral commissioners, civil society leaders, and tech pioneers from 14th – 16th October 2026 at Congress Hall, Transcorp Hilton, Abuja, Nigeria."
         />
 
         {/* Prominent Exhibitor Portal Card */}

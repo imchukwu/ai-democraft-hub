@@ -290,7 +290,7 @@ func (s *Server) sendExhibitorConfirmationEmail(toEmail, contactName, organizati
 
 	subject := "Exhibitor Application Received - AI & Democracy Forum 2026"
 	body := fmt.Sprintf("Dear %s,\n\n"+
-		"Thank you for submitting an Exhibitor Booth application for the AI & Democracy Forum (AIDF 2026), taking place from 7th – 9th October 2026 at Congress Hall, Transcorp Hilton, Abuja, Nigeria.\n\n"+
+		"Thank you for submitting an Exhibitor Booth application for the AI & Democracy Forum (AIDF 2026), taking place from 14th – 16th October 2026 at Congress Hall, Transcorp Hilton, Abuja, Nigeria.\n\n"+
 		"We have successfully received your application details:\n"+
 		"• Organization: %s\n"+
 		"• Contact Person: %s\n"+

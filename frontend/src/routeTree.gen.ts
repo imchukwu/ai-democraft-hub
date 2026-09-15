@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ExhibitorRouteImport } from './routes/exhibitor'
 import { Route as ExhibitorsRouteImport } from './routes/exhibitors'
+import { Route as HomeRouteImport } from './routes/home'
 import { Route as ParticipantsRouteImport } from './routes/participants'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as ProgramRouteImport } from './routes/program'
@@ -46,6 +47,11 @@ const ExhibitorRoute = ExhibitorRouteImport.update({
 const ExhibitorsRoute = ExhibitorsRouteImport.update({
   id: '/exhibitors',
   path: '/exhibitors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParticipantsRoute = ParticipantsRouteImport.update({
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRoute
   '/exhibitor': typeof ExhibitorRoute
   '/exhibitors': typeof ExhibitorsRoute
+  '/home': typeof HomeRoute
   '/participants': typeof ParticipantsRoute
   '/partners': typeof PartnersRoute
   '/program': typeof ProgramRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminRoute
   '/exhibitor': typeof ExhibitorRoute
   '/exhibitors': typeof ExhibitorsRoute
+  '/home': typeof HomeRoute
   '/participants': typeof ParticipantsRoute
   '/partners': typeof PartnersRoute
   '/program': typeof ProgramRoute
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/exhibitor': typeof ExhibitorRoute
   '/exhibitors': typeof ExhibitorsRoute
+  '/home': typeof HomeRoute
   '/participants': typeof ParticipantsRoute
   '/partners': typeof PartnersRoute
   '/program': typeof ProgramRoute
@@ -143,6 +152,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/exhibitor'
     | '/exhibitors'
+    | '/home'
     | '/participants'
     | '/partners'
     | '/program'
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/exhibitor'
     | '/exhibitors'
+    | '/home'
     | '/participants'
     | '/partners'
     | '/program'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/exhibitor'
     | '/exhibitors'
+    | '/home'
     | '/participants'
     | '/partners'
     | '/program'
@@ -189,6 +201,7 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRoute
   ExhibitorRoute: typeof ExhibitorRoute
   ExhibitorsRoute: typeof ExhibitorsRoute
+  HomeRoute: typeof HomeRoute
   ParticipantsRoute: typeof ParticipantsRoute
   PartnersRoute: typeof PartnersRoute
   ProgramRoute: typeof ProgramRoute
@@ -234,6 +247,13 @@ declare module '@tanstack/react-router' {
       path: '/exhibitors'
       fullPath: '/exhibitors'
       preLoaderRoute: typeof ExhibitorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/participants': {
@@ -301,6 +321,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRoute,
   ExhibitorRoute: ExhibitorRoute,
   ExhibitorsRoute: ExhibitorsRoute,
+  HomeRoute: HomeRoute,
   ParticipantsRoute: ParticipantsRoute,
   PartnersRoute: PartnersRoute,
   ProgramRoute: ProgramRoute,

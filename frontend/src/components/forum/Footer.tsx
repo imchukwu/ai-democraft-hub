@@ -70,7 +70,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-xs text-slate-400 sm:flex-row">
           <p>© 2026 {forumMeta.fullName} (AIDF 2026). Hosted by Yiaga Africa and partners. All rights reserved.</p>
-          <p className="font-mono text-[11px] text-cyan-400">7th – 9th October 2026 · Abuja, Nigeria</p>
+          <p className="font-mono text-[11px] text-cyan-400">14th – 16th October 2026 · Abuja, Nigeria</p>
         </div>
       </div>
     </footer>

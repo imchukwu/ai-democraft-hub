@@ -11,8 +11,8 @@ export function EventCountdownBar() {
   });
 
   useEffect(() => {
-    // Target date: October 7, 2026 09:00:00 UTC
-    const targetDate = new Date("2026-10-07T09:00:00Z").getTime();
+    // Target date: October 14, 2026 09:00:00 UTC
+    const targetDate = new Date("2026-10-14T09:00:00Z").getTime();
 
     const updateTimer = () => {
       const now = new Date().getTime();
@@ -46,7 +46,7 @@ export function EventCountdownBar() {
               <span>Event Countdown</span>
             </div>
             <p className="text-sm font-semibold text-white">
-              Convening opens Wednesday, 7 October 2026 in Abuja, Nigeria
+              Convening opens Wednesday, 14 October 2026 in Abuja, Nigeria
             </p>
           </div>
         </div>

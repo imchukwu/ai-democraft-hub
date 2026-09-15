@@ -9,8 +9,8 @@ export const forumMeta = {
   themeHeadline: "WILL ALGORITHMS DETERMINE THE 2027 VOTE?",
   themeSubtitle: "Safeguarding Nigeria's 2027 General Election in the Age of Artificial Intelligence",
   convener: "Yiaga Africa and Partners",
-  date: "7th – 9th October 2026",
-  dateShort: "7–9 Oct 2026",
+  date: "14th – 16th October 2026",
+  dateShort: "14–16 Oct 2026",
   location: "Abuja, Nigeria",
   venue: "Congress Hall, Transcorp Hilton, Abuja",
   edition: "First Edition · Annual Convening",
@@ -24,6 +24,7 @@ export const forumMeta = {
 };
 
 export const navLinks = [
+  { label: "Home", to: "/home" },
   { label: "About", to: "/about" },
   { label: "Program", to: "/program" },
   { label: "Speakers", to: "/speakers" },
@@ -116,11 +117,11 @@ export type Session = {
 };
 
 export const program: Session[] = [
-  // Pre-Day / Day 1 - Oct 7
+  // Pre-Day / Day 1 - Oct 14
   {
     id: "s0",
     day: "Day 1",
-    date: "Wednesday, 7 October",
+    date: "Wednesday, 14 October",
     time: "All day",
     endTime: "",
     title: "Arrival and Delegates Accreditation",
@@ -133,7 +134,7 @@ export const program: Session[] = [
   {
     id: "s1",
     day: "Day 1",
-    date: "Wednesday, 7 October",
+    date: "Wednesday, 14 October",
     time: "09:00",
     endTime: "09:15",
     title: "Opening Session: Welcome Remarks",
@@ -146,7 +147,7 @@ export const program: Session[] = [
   {
     id: "s2",
     day: "Day 1",
-    date: "Wednesday, 7 October",
+    date: "Wednesday, 14 October",
     time: "09:15",
     endTime: "09:30",
     title: "Goodwill Messages",
@@ -159,7 +160,7 @@ export const program: Session[] = [
   {
     id: "s3",
     day: "Day 1",
-    date: "Wednesday, 7 October",
+    date: "Wednesday, 14 October",
     time: "09:30",
     endTime: "10:00",
     title: "Keynote Address",
@@ -174,7 +175,7 @@ export const program: Session[] = [
   {
     id: "s4",
     day: "Day 1",
-    date: "Wednesday, 7 October",
+    date: "Wednesday, 14 October",
     time: "10:00",
     endTime: "11:30",
     title:
@@ -193,7 +194,7 @@ export const program: Session[] = [
   {
     id: "s5",
     day: "Day 1",
-    date: "Wednesday, 7 October",
+    date: "Wednesday, 14 October",
     time: "11:30",
     endTime: "12:00",
     title:
@@ -207,7 +208,7 @@ export const program: Session[] = [
   {
     id: "s6",
     day: "Day 1",
-    date: "Wednesday, 7 October",
+    date: "Wednesday, 14 October",
     time: "12:00",
     endTime: "13:00",
     title:
@@ -221,7 +222,7 @@ export const program: Session[] = [
   {
     id: "s7",
     day: "Day 1",
-    date: "Wednesday, 7 October",
+    date: "Wednesday, 14 October",
     time: "13:00",
     endTime: "14:00",
     title: "LUNCH & Networking Break",
@@ -233,7 +234,7 @@ export const program: Session[] = [
   {
     id: "s8",
     day: "Day 1",
-    date: "Wednesday, 7 October",
+    date: "Wednesday, 14 October",
     time: "14:00",
     endTime: "15:30",
     title:
@@ -245,11 +246,11 @@ export const program: Session[] = [
     location: "Workshop Room A",
   },
 
-  // Day 2 - Oct 8
+  // Day 2 - Oct 15
   {
     id: "s-d2-1",
     day: "Day 2",
-    date: "Thursday, 8 October",
+    date: "Thursday, 15 October",
     time: "09:00",
     endTime: "09:15",
     title: "Recap of Day One",
@@ -262,7 +263,7 @@ export const program: Session[] = [
   {
     id: "s-d2-2",
     day: "Day 2",
-    date: "Thursday, 8 October",
+    date: "Thursday, 15 October",
     time: "09:15",
     endTime: "10:45",
     title:
@@ -280,7 +281,7 @@ export const program: Session[] = [
   {
     id: "s-d2-3",
     day: "Day 2",
-    date: "Thursday, 8 October",
+    date: "Thursday, 15 October",
     time: "10:45",
     endTime: "12:15",
     title:
@@ -298,7 +299,7 @@ export const program: Session[] = [
   {
     id: "s-d2-4",
     day: "Day 2",
-    date: "Thursday, 8 October",
+    date: "Thursday, 15 October",
     time: "12:15",
     endTime: "17:00",
     title:
@@ -312,7 +313,7 @@ export const program: Session[] = [
   {
     id: "s-d2-5",
     day: "Day 2",
-    date: "Thursday, 8 October",
+    date: "Thursday, 15 October",
     time: "12:15",
     endTime: "17:00",
     title:
@@ -326,7 +327,7 @@ export const program: Session[] = [
   {
     id: "s-d2-6",
     day: "Day 2",
-    date: "Thursday, 8 October",
+    date: "Thursday, 15 October",
     time: "12:15",
     endTime: "17:00",
     title:
@@ -341,11 +342,11 @@ export const program: Session[] = [
     location: "Demo Stage & Sandbox Arena",
   },
 
-  // Day 3 - Oct 9
+  // Day 3 - Oct 16
   {
     id: "s-d3-1",
     day: "Day 3",
-    date: "Friday, 9 October",
+    date: "Friday, 16 October",
     time: "09:00",
     endTime: "09:15",
     title: "Recap of Day Two",
@@ -358,7 +359,7 @@ export const program: Session[] = [
   {
     id: "s-d3-2",
     day: "Day 3",
-    date: "Friday, 9 October",
+    date: "Friday, 16 October",
     time: "09:15",
     endTime: "10:30",
     title: "Panel Session: Abuja Accord on AI and Democracy",
@@ -375,7 +376,7 @@ export const program: Session[] = [
   {
     id: "s-d3-3",
     day: "Day 3",
-    date: "Friday, 9 October",
+    date: "Friday, 16 October",
     time: "10:30",
     endTime: "13:00",
     title: "AI for Elections Sandbox — Grand Finale",
@@ -391,7 +392,7 @@ export const program: Session[] = [
   {
     id: "s-d3-4",
     day: "Day 3",
-    date: "Friday, 9 October",
+    date: "Friday, 16 October",
     time: "13:00",
     endTime: "14:00",
     title: "LUNCH",
@@ -403,7 +404,7 @@ export const program: Session[] = [
   {
     id: "s-d3-5",
     day: "Day 3",
-    date: "Friday, 9 October",
+    date: "Friday, 16 October",
     time: "14:00",
     endTime: "14:30",
     title: "AI for Elections Sandbox - Award & Grant Presentation",
@@ -416,7 +417,7 @@ export const program: Session[] = [
   {
     id: "s-d3-6",
     day: "Day 3",
-    date: "Friday, 9 October",
+    date: "Friday, 16 October",
     time: "14:30",
     endTime: "15:30",
     title: "Closing Plenary",
@@ -429,7 +430,7 @@ export const program: Session[] = [
   {
     id: "s-d3-7",
     day: "Day 3",
-    date: "Friday, 9 October",
+    date: "Friday, 16 October",
     time: "15:30",
     endTime: "",
     title: "Closing",

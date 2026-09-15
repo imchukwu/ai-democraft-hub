@@ -14,7 +14,7 @@ function ExhibitorsPage() {
         <div className="container-forum">
           <span className="eyebrow text-amber-400">Exhibition Floor</span>
           <h1 className="mt-2 text-4xl font-extrabold text-white">Exhibitors Directory</h1>
-          <p className="mt-2 text-sm text-slate-300">7th – 9th October 2026 · Congress Hall, Transcorp Hilton, Abuja</p>
+          <p className="mt-2 text-sm text-slate-300">14th – 16th October 2026 · Congress Hall, Transcorp Hilton, Abuja</p>
         </div>
       </div>
       <div className="py-24 text-center container-forum max-w-2xl">

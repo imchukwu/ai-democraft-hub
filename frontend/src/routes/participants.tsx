@@ -146,7 +146,7 @@ function ParticipantsPage() {
                 <span className="font-mono text-3xl font-extrabold text-cyan-400">03</span>
                 <h4 className="mt-3 text-lg font-bold text-white">Collect Badge at ICC Abuja</h4>
                 <p className="mt-2 text-xs text-slate-300 leading-relaxed">
-                  Collect your RFID delegate badge and welcome pack at the ICC Abuja Exhibition Atrium starting Wednesday, 7 October.
+                  Collect your RFID delegate badge and welcome pack at the ICC Abuja Exhibition Atrium starting Wednesday, 14 October.
                 </p>
               </div>
             </Reveal>

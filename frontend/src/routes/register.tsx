@@ -15,7 +15,7 @@ function RegisterPage() {
         <div className="container-forum">
           <span className="eyebrow text-amber-400">Convening Accreditation</span>
           <h1 className="mt-2 text-4xl font-extrabold text-white">Delegate Accreditation</h1>
-          <p className="mt-2 text-sm text-slate-300">7–9 October 2026 · Congress Hall, Transcorp Hilton, Abuja, Nigeria (By Invitation Only)</p>
+          <p className="mt-2 text-sm text-slate-300">14–16 October 2026 · Congress Hall, Transcorp Hilton, Abuja, Nigeria (By Invitation Only)</p>
         </div>
       </div>
       <RegistrationSection />

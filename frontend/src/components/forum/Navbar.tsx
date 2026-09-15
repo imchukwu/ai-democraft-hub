@@ -37,7 +37,7 @@ export function Navbar() {
           compact ? "h-16" : "h-16 md:h-20",
         )}
       >
-        <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+        <Link to="/home" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <img src="/logo.svg" alt="AIDF 2026 Logo" className="h-8 md:h-9 w-auto shrink-0 object-contain" />
           <span className="leading-tight">
             <span className="block text-[0.9rem] sm:text-[0.95rem] font-bold tracking-tight">

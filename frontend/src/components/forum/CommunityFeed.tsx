@@ -19,7 +19,7 @@ const posts: SocialPost[] = [
     role: "Strategic Partner",
     time: "2 hours ago",
     content:
-      "Honored to co-convene the AI & Democracy Forum in Abuja from 7–11 October 2026. Algorithmic governance must be rooted in sovereign African institutional capacity and human rights protection. #AIDemocracy2026 #GovTech",
+      "Honored to co-convene the AI & Democracy Forum in Abuja from 14–16 October 2026. Algorithmic governance must be rooted in sovereign African institutional capacity and human rights protection. #AIDemocracy2026 #GovTech",
     tags: ["#AIDemocracy2026", "#GovTech", "#AbujaConvening"],
   },
   {
