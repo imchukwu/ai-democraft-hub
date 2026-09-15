@@ -10,7 +10,6 @@ import {
   ChevronDown,
   Clock,
   Code2,
-  FileText,
   Info,
   Lightbulb,
   Monitor,
@@ -75,18 +74,11 @@ const ORG_TYPES = [
 ];
 
 const KEY_DATES = [
-  { milestone: "Call Opens", date: "14 September 2026" },
-  { milestone: "Application Deadline", date: "24–25 September 2026" },
-  { milestone: "Shortlist Announced", date: "1 October 2026" },
-  { milestone: "Live Pitch Finale (at the Forum)", date: "14–16 October 2026" },
-  { milestone: "Winners Announced", date: "14–16 October 2026" },
-];
-
-const SCORING_CRITERIA = [
-  { criterion: "Relevance to the focus area", weight: "30%" },
-  { criterion: "Feasibility / technical maturity", weight: "25%" },
-  { criterion: "Potential impact on democracy", weight: "30%" },
-  { criterion: "Clarity of demo and pitch", weight: "15%" },
+  { milestone: "Call Opens", date: "16 September 2026" },
+  { milestone: "Application Deadline", date: "24 September 2026" },
+  { milestone: "Shortlist Announced", date: "2 October 2026" },
+  { milestone: "Live Pitch", date: "16 October 2026" },
+  { milestone: "Winner Announced", date: "16 October 2026" },
 ];
 
 // ── Main Component ────────────────────────────────────────────────────────────
@@ -232,11 +224,11 @@ export function SandboxRegistrationSection() {
         <SectionHeader
           eyebrow="Call for Innovators"
           title="Apply to The Sandbox"
-          lede="Are you building technology that helps protect elections, inform voters, or restore public trust in democratic processes? Submit your working prototype and pitch live in front of a jury of experts for grant funding, a pavilion booth, and a global platform."
+          lede="Are you building technology that helps protect elections, inform voters, or restore public trust in democratic processes? Submit your working prototype and pitch live in front of a jury of experts for grant funding and a global platform."
         />
 
         {/* ── Why Apply Cards ── */}
-        <Reveal className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal className="mt-10 grid gap-4 sm:grid-cols-3">
           {[
             {
               icon: Trophy,
@@ -253,14 +245,6 @@ export function SandboxRegistrationSection() {
               color: "text-[#15B708]",
               bg: "bg-slate-900/90",
               border: "border-[#15B708]/40",
-            },
-            {
-              icon: Code2,
-              title: "Sandbox Pavilion Booth",
-              desc: "A featured booth in the Sandbox Pavilion alongside the Forum's main exhibition floor.",
-              color: "text-cyan-400",
-              bg: "bg-slate-900/90",
-              border: "border-cyan-500/40",
             },
             {
               icon: Lightbulb,
@@ -318,104 +302,6 @@ export function SandboxRegistrationSection() {
               ))}
             </div>
           </div>
-        </Reveal>
-
-        {/* ── Scoring Criteria ── */}
-        <Reveal className="mt-6">
-          <details className="group rounded-xl border border-slate-800 bg-slate-950 overflow-hidden">
-            <summary className="flex cursor-pointer items-center justify-between px-6 py-4 text-sm font-bold text-white list-none">
-              <span className="flex items-center gap-2">
-                <FileText className="h-4 w-4 text-slate-400" />
-                Selection Process &amp; Scoring Rubric
-              </span>
-              <ChevronDown className="h-4 w-4 text-slate-400 transition-transform group-open:rotate-180" />
-            </summary>
-            <div className="px-6 pb-6 space-y-4 border-t border-slate-800 pt-4">
-              <div className="grid gap-4 md:grid-cols-3 text-xs text-slate-300">
-                {[
-                  {
-                    stage: "Stage 1",
-                    title: "Eligibility Screening",
-                    desc: "Every submission is checked for focus-area fit, completeness, and a genuine working proof of concept with an end-to-end demo.",
-                  },
-                  {
-                    stage: "Stage 2",
-                    title: "Quality Scoring",
-                    desc: "Eligible submissions are scored by reviewers against the rubric below. Top submissions per focus area are shortlisted for the jury.",
-                  },
-                  {
-                    stage: "Stage 3",
-                    title: "Jury & Pitch Finale",
-                    desc: "Shortlisted teams pitch live at the Forum. An independent jury scores each pitch to select the winner in each focus area.",
-                  },
-                ].map((s) => (
-                  <div key={s.stage} className="rounded-lg border border-slate-800 bg-slate-900/60 p-3">
-                    <p className="font-mono text-[10px] uppercase text-[#15B708] font-bold mb-1">{s.stage}</p>
-                    <p className="font-bold text-white text-sm mb-1">{s.title}</p>
-                    <p className="leading-relaxed">{s.desc}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 overflow-hidden rounded-lg border border-slate-800">
-                <table className="w-full text-xs">
-                  <thead className="bg-slate-900 text-left">
-                    <tr>
-                      <th className="px-4 py-2.5 font-bold text-slate-300">Criterion</th>
-                      <th className="px-4 py-2.5 font-bold text-slate-300 text-right">Weight</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {SCORING_CRITERIA.map((c, i) => (
-                      <tr key={i} className={i % 2 === 0 ? "bg-slate-950" : "bg-slate-900/50"}>
-                        <td className="px-4 py-2.5 text-slate-200">{c.criterion}</td>
-                        <td className="px-4 py-2.5 text-right font-mono font-bold text-[#15B708]">
-                          {c.weight}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="mt-4 rounded-lg border border-slate-800 overflow-hidden">
-                <p className="bg-slate-900 px-4 py-2.5 text-[11px] font-bold text-slate-300 uppercase tracking-wider">
-                  Prizes &amp; Recognition
-                </p>
-                <div className="px-4 pb-4 pt-3 space-y-2 text-xs text-slate-300">
-                  <p>
-                    One winner per focus area. From those 4 winners, the jury additionally names:
-                    <strong className="text-white"> Overall Best · 1st Runner-Up · 2nd Runner-Up</strong>.
-                  </p>
-                  <p>All 4 winners receive: a confirmed grant (share of prize pool), a Sandbox Pavilion booth, and public recognition at the Forum's closing session.</p>
-                  <div className="mt-2 overflow-hidden rounded border border-slate-800">
-                    <table className="w-full text-xs">
-                      <thead className="bg-slate-900">
-                        <tr>
-                          <th className="px-3 py-2 text-left text-slate-300">Placement</th>
-                          <th className="px-3 py-2 text-right text-slate-300">Suggested Share</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {[
-                          { p: "Overall Best", s: "40%" },
-                          { p: "1st Runner-Up", s: "25%" },
-                          { p: "2nd Runner-Up", s: "20%" },
-                          { p: "Focus-Area Winner (unplaced)", s: "15%" },
-                        ].map((r, i) => (
-                          <tr key={i} className={i % 2 === 0 ? "bg-slate-950" : "bg-slate-900/50"}>
-                            <td className="px-3 py-2 text-slate-200">{r.p}</td>
-                            <td className="px-3 py-2 text-right font-mono font-bold text-amber-400">{r.s}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                  <p className="text-[11px] text-slate-500 italic">
-                    Final total pool amount and exact splits are pending confirmation.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </details>
         </Reveal>
 
         {/* ── Application Form ── */}
@@ -785,7 +671,7 @@ export function SandboxRegistrationSection() {
                   >
                     {isSubmitting
                       ? "Submitting Application…"
-                      : "Submit Sandbox Application (Deadline: 24–25 September 2026)"}
+                      : "Submit Sandbox Application (Deadline: 24th September 2026)"}
                   </button>
                   <p className="mt-2 text-center text-[11px] text-slate-400">
                     By submitting, you agree to the AIDF 2026 Sandbox Guidelines &amp; Privacy Policy. Confirmation

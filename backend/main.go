@@ -531,6 +531,7 @@ func (s *Server) handleAdminStats(w http.ResponseWriter, r *http.Request) {
 
 	participants, _ := s.db.FindAll("participants")
 	exhibitors, _ := s.db.FindAll("exhibitors")
+	sandbox, _ := s.db.FindAll("sandbox_applicants")
 
 	partCatCount := make(map[string]int)
 	for _, p := range participants {
@@ -550,12 +551,23 @@ func (s *Server) handleAdminStats(w http.ResponseWriter, r *http.Request) {
 		exhCatCount[cat]++
 	}
 
+	sandboxFocusCount := make(map[string]int)
+	for _, sb := range sandbox {
+		fa, _ := sb["focusArea"].(string)
+		if fa == "" {
+			fa = "Unspecified"
+		}
+		sandboxFocusCount[fa]++
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"totalParticipants":     len(participants),
 		"totalExhibitors":       len(exhibitors),
+		"totalSandbox":          len(sandbox),
 		"participantCategories": partCatCount,
 		"exhibitorCategories":   exhCatCount,
+		"sandboxFocusAreas":     sandboxFocusCount,
 		"deadline":              s.deadline.Format("2006-01-02 15:04:05 MST"),
 		"isDeadlinePassed":      time.Now().After(s.deadline),
 		"databaseEngine":        s.dbEngine,
@@ -574,12 +586,14 @@ func (s *Server) handleAdminRegistrations(w http.ResponseWriter, r *http.Request
 
 	participants, _ := s.db.FindAll("participants")
 	exhibitors, _ := s.db.FindAll("exhibitors")
+	sandbox, _ := s.db.FindAll("sandbox_applicants")
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"success":      true,
 		"participants": participants,
 		"exhibitors":   exhibitors,
+		"sandbox":      sandbox,
 	})
 }
 
@@ -598,7 +612,7 @@ func (s *Server) handleAdminDelete(w http.ResponseWriter, r *http.Request) {
 	}
 
 	docID := r.URL.Query().Get("id")
-	targetType := r.URL.Query().Get("type") // "participants" or "exhibitors"
+	targetType := r.URL.Query().Get("type") // "participants", "exhibitors", or "sandbox"
 
 	if docID == "" {
 		http.Error(w, "Document _id required", http.StatusBadRequest)
@@ -608,6 +622,8 @@ func (s *Server) handleAdminDelete(w http.ResponseWriter, r *http.Request) {
 	collName := "participants"
 	if targetType == "exhibitor" || strings.HasPrefix(docID, "exh_") {
 		collName = "exhibitors"
+	} else if targetType == "sandbox" || strings.HasPrefix(docID, "sbx_") {
+		collName = "sandbox_applicants"
 	}
 
 	deleted := s.db.DeleteOne(collName, docID)
@@ -649,7 +665,31 @@ func (s *Server) handleAdminExportCSV(w http.ResponseWriter, r *http.Request) {
 	dataType := r.URL.Query().Get("type")
 	w.Header().Set("Content-Type", "text/csv")
 
-	if dataType == "exhibitors" {
+	if dataType == "sandbox" {
+		sandbox, _ := s.db.FindAll("sandbox_applicants")
+		w.Header().Set("Content-Disposition", "attachment;filename=aidf2026_sandbox_applicants_nosql.csv")
+		writer := csv.NewWriter(w)
+		writer.Write([]string{"_id", "Project Name", "Team Name", "Contact Name", "Email", "Phone", "Focus Area", "Org Type", "Country", "Website", "Demo Type", "Demo Link", "Team Size", "Description", "Submitted At"})
+		for _, sb := range sandbox {
+			id, _ := sb["_id"].(string)
+			proj, _ := sb["projectName"].(string)
+			team, _ := sb["teamName"].(string)
+			contact, _ := sb["contactName"].(string)
+			email, _ := sb["email"].(string)
+			phone, _ := sb["phone"].(string)
+			fa, _ := sb["focusArea"].(string)
+			ot, _ := sb["orgType"].(string)
+			country, _ := sb["country"].(string)
+			web, _ := sb["website"].(string)
+			dt, _ := sb["demoType"].(string)
+			dl, _ := sb["demoLink"].(string)
+			ts, _ := sb["teamSize"].(string)
+			desc, _ := sb["description"].(string)
+			sub, _ := sb["submittedAt"].(string)
+			writer.Write([]string{id, proj, team, contact, email, phone, fa, ot, country, web, dt, dl, ts, desc, sub})
+		}
+		writer.Flush()
+	} else if dataType == "exhibitors" {
 		exhibitors, _ := s.db.FindAll("exhibitors")
 		w.Header().Set("Content-Disposition", "attachment;filename=aidf2026_exhibitors_nosql.csv")
 		writer := csv.NewWriter(w)
